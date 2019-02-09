@@ -3,6 +3,7 @@
 Creates HTML report based on testng-resutl.xml
 
 [![HitCount](http://hits.dwyl.io/adiralashiva8/testng-metrics.svg)](http://hits.dwyl.io/adiralashiva8/testng-metrics)
+![Github Releases (by Release)](https://img.shields.io/github/downloads/adiralashiva8/testng-metrics/v1.0/total.svg)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
 ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 ![Open Source Love png1](https://badges.frapsoft.com/os/v1/open-source.png?v=103)
@@ -36,7 +37,7 @@ Creates HTML report based on testng-resutl.xml
 
 ### How to use in Project:
 
-1. Download Metrics.java from [here]() and include downloaded file in project
+1. Download Metrics.java from [here](/adiralashiva8/testng-metrics/releases/download/v1.0/Metrics.java) and include downloaded file in project
 
 2. Make required changes like logo, path to testng-report.xml
     > Modify logo
