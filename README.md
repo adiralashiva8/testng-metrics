@@ -37,7 +37,7 @@ Creates HTML report based on testng-resutl.xml
 
 ### How to use in Project:
 
-1. Download Metrics.java from [here](/adiralashiva8/testng-metrics/releases/download/v1.0/Metrics.java) and include downloaded file in project
+1. Download Metrics.java from [here](https://github.com/adiralashiva8/testng-metrics/releases/download/v1.0/Metrics.java) and include downloaded file in project
 
 2. Make required changes like logo, path to testng-report.xml
     > Modify logo
