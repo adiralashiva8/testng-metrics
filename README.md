@@ -9,6 +9,12 @@ Creates HTML report based on testng-resutl.xml
 ![Open Source Love png1](https://badges.frapsoft.com/os/v1/open-source.png?v=103)
 
 ---
+__ TesntNG Metrics Overview__
+
+ ![COPY FILES](test-output/testng.gif)
+
+
+---
 
   - __Sample Report__ [link](https://testng-metrics.netlify.com/)
   - Source code to parse testNg-report.xml [link](https://gist.github.com/adiralashiva8/f9491d7d31859eaf24c28250ab7b632f)
