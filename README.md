@@ -11,7 +11,7 @@ Creates HTML report based on testng-resutl.xml
 ---
 __TesntNG Metrics Overview__
 
- ![COPY FILES](test-output/testng.gif)
+ ![COPY FILES](https://i.ibb.co/q1TFVhR/testng.gif)
 
 ---
 
