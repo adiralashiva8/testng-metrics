@@ -16,7 +16,7 @@ __TesntNG Metrics Overview__
 ---
 
   - __Sample Report__ [link](https://testng-metrics.netlify.com/)
-  - Source to parse testNg-report.xml [link](https://gist.github.com/adiralashiva8/f9491d7d31859eaf24c28250ab7b632f)
+  - Download `Metrics.java` from [here](https://github.com/adiralashiva8/testng-metrics/releases/download/v1.0/Metrics.java)
 
 ---
 
