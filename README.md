@@ -9,15 +9,14 @@ Creates HTML report based on testng-resutl.xml
 ![Open Source Love png1](https://badges.frapsoft.com/os/v1/open-source.png?v=103)
 
 ---
-__ TesntNG Metrics Overview__
+__TesntNG Metrics Overview__
 
  ![COPY FILES](test-output/testng.gif)
-
 
 ---
 
   - __Sample Report__ [link](https://testng-metrics.netlify.com/)
-  - Source code to parse testNg-report.xml [link](https://gist.github.com/adiralashiva8/f9491d7d31859eaf24c28250ab7b632f)
+  - Source to parse testNg-report.xml [link](https://gist.github.com/adiralashiva8/f9491d7d31859eaf24c28250ab7b632f)
 
 ---
 
@@ -48,15 +47,17 @@ __ TesntNG Metrics Overview__
 2. Make required changes like logo, path to testng-report.xml
     > Modify logo
     >  - Line no. : 11 in file
-    >  - String logo = "customlogo.jpg";
+    >  - ```String logo = "customlogo.jpg";```
 
     > Modify testng-report.xml path
     >  - Line no. : 17 in file
-    >  - String path = System.getProperty("mycustompath");
+    >  - ```String path = System.getProperty("mycustompath");```
 
 3. Execute Metrics.java file
-    > - Javac Metrics.java
-    > - Java Metrics
+    ```
+    Javac Metrics.java
+    Java Metrics
+    ```
 
 4. TestNG Metrics report __metric-timestamp.html__ file will be created in current folder
 
@@ -67,7 +68,11 @@ Thanks for using testng-metrics!
  - What is your opinion of this report?
  - What’s the feature I should add?
 
-If you have any questions / suggestions / comments on the report, please feel free to reach me on adiralashiva8@gmail.com  
+If you have any questions / suggestions / comments on the report, please feel free to reach me at
+
+ - Email: <a href="mailto:adiralashiva8@gmail.com?Subject=Robotframework%20Metrics" target="_blank">`adiralashiva8@gmail.com`</a> 
+ - LinkedIn: <a href="https://www.linkedin.com/in/shivaprasadadirala/" target="_blank">`shivaprasadadirala`</a>
+ - Twitter: <a href="https://twitter.com/ShivaAdirala" target="_blank">`@ShivaAdirala`</a>
 
 ---
 
@@ -85,6 +90,6 @@ If you have any questions / suggestions / comments on the report, please feel fr
 
 ---
 
-Inpired from robotframework-metrics [report](https://robotframework-metrics.netlify.com/#)
+Inspired from [robotframework-metrics](https://github.com/adiralashiva8/robotframework-metrics)
 
 ---
