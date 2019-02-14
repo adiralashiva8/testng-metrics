@@ -3,7 +3,7 @@
 Creates HTML report based on testng-resutl.xml
 
 [![HitCount](http://hits.dwyl.io/adiralashiva8/testng-metrics.svg)](http://hits.dwyl.io/adiralashiva8/testng-metrics)
-![Github Releases (by Release)](https://img.shields.io/github/downloads/adiralashiva8/testng-metrics/v1.0/total.svg)
+![Github Releases (by Release)](https://img.shields.io/github/downloads/adiralashiva8/testng-metrics/v1.1/total.svg)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
 ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 ![Open Source Love png1](https://badges.frapsoft.com/os/v1/open-source.png?v=103)
@@ -11,12 +11,12 @@ Creates HTML report based on testng-resutl.xml
 ---
 __TesntNG Metrics Overview__
 
- ![COPY FILES](https://i.ibb.co/q1TFVhR/testng.gif)
+ ![COPY FILES](https://s2.gifyu.com/images/dashboard_overview.gif)
 
 ---
 
   - __Sample Report__ [link](https://testng-metrics.netlify.com/)
-  - Download `Metrics.java` from [here](https://github.com/adiralashiva8/testng-metrics/releases/download/v1.0/Metrics.java)
+  - Download `Metrics.java` from [here](https://github.com/adiralashiva8/testng-metrics/releases/download/v1.1/Metrics.java)
 
 ---
 
@@ -27,8 +27,7 @@ __TesntNG Metrics Overview__
  - Sort and Search Results
  - Export Results
  - Generate email (.eml) with statisitics
- - No Installation required
- - Code changes not required
+ - No Installation or Code changes required
 
 ---
 
@@ -42,21 +41,21 @@ __TesntNG Metrics Overview__
 
 ### How to use in Project:
 
-1. Download Metrics.java from [here](https://github.com/adiralashiva8/testng-metrics/releases/download/v1.0/Metrics.java) and include downloaded file in project
+1. Download `Metrics.java` from [here](https://github.com/adiralashiva8/testng-metrics/releases/download/v1.1/Metrics.java) and include downloaded file in project
 
 2. Make required changes like logo, path to testng-report.xml
     > Modify logo
-    >  - Line no. : 11 in file
+    >  - Line no. : 10 in file
     >  - ```String logo = "customlogo.jpg";```
 
     > Modify testng-report.xml path
-    >  - Line no. : 17 in file
+    >  - Line no. : 19 in file
     >  - ```String path = System.getProperty("mycustompath");```
 
 3. Execute Metrics.java file
     ```
-    Javac Metrics.java
-    Java Metrics
+    javac Metrics.java
+    java Metrics
     ```
 
 4. TestNG Metrics report __metric-timestamp.html__ file will be created in current folder
