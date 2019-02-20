@@ -179,6 +179,7 @@ public class HtmlBuilder {
   // "4 of 4: Capturing method metrics..."
   public static StringBuilder buildMethodMetricsTab(ISuiteResult suiteResult) {
     StringBuilder builder = new StringBuilder();
+    System.out.println("4 of 4: Capturing method metrics...");
     // METHOD METRICS TAB
     builder
         .append(
