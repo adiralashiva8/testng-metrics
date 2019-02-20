@@ -11,6 +11,7 @@ logs/
 *.DS_Store
 .idea/
 *.iml
+.metadata
 
 # Gradle files
 .gradle/
