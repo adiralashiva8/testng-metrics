@@ -65,7 +65,7 @@ public class Utils {
         int retriedPerTest = 0;
         int skippedPerTest = 0;
         for (ITestResult result : testContext.getSkippedTests().getAllResults()) {
-          if (result.wasRetried()) {
+          if (result.getAttribute("retried") != null) {
             retriedPerTest++;
           } else {
             skippedPerTest++;
