@@ -10,7 +10,7 @@
 
     <groupId>com.github.adiralashiva8</groupId>
     <artifactId>testng-metrics</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 	
 	<name>TestNG Metrics</name>

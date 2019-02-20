@@ -3,7 +3,6 @@
 Creates HTML report based on testng-resutl.xml
 
 [![HitCount](http://hits.dwyl.io/adiralashiva8/testng-metrics.svg)](http://hits.dwyl.io/adiralashiva8/testng-metrics)
-![Github Releases (by Release)](https://img.shields.io/github/downloads/adiralashiva8/testng-metrics/v1.1/total.svg)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
 ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 ![Open Source Love png1](https://badges.frapsoft.com/os/v1/open-source.png?v=103)
@@ -11,12 +10,11 @@ Creates HTML report based on testng-resutl.xml
 ---
 __TesntNG Metrics Overview__
 
- ![COPY FILES](https://s2.gifyu.com/images/dashboard_overview.gif)
+ ![OVERVIEW](https://s2.gifyu.com/images/dashboard_overview.gif)
 
 ---
 
   - __Sample Report__ [link](https://testng-metrics.netlify.com/)
-  - Download `Metrics.java` from [here](https://github.com/adiralashiva8/testng-metrics/releases/download/v1.1/Metrics.java)
 
 ---
 
@@ -31,34 +29,15 @@ __TesntNG Metrics Overview__
 
 ---
 
-### How it Works:
-
-1. Read testng-result.xml file using javax.xml.parsers.DocumentBuilder
-2. Get Suite, Test Case , Status, Elapsed time and Error values
-3. Convert data to html report using java.lang.StringBuilder
-
----
-
 ### How to use in Project:
 
-1. Download `Metrics.java` from [here](https://github.com/adiralashiva8/testng-metrics/releases/download/v1.1/Metrics.java) and include downloaded file in project
+1. Add testng-metrics as dependency in pom.xml
 
-2. Make required changes like logo, path to testng-report.xml
-    > Modify logo
-    >  - Line no. : 10 in file
-    >  - ```String logo = "customlogo.jpg";```
+2. Perform maven install
 
-    > Modify testng-report.xml path
-    >  - Line no. : 19 in file
-    >  - ```String path = System.getProperty("mycustompath");```
+3. Execute test cases using testNG
 
-3. Execute Metrics.java file
-    ```
-    javac Metrics.java
-    java Metrics
-    ```
-
-4. TestNG Metrics report __metric-timestamp.html__ file will be created in current folder
+4. TestNG Metrics report __metric-timestamp.html__ file will be created
 
 ---
 
@@ -88,6 +67,23 @@ If you have any questions / suggestions / comments on the report, please feel fr
 8. Icons8 [link](https://icons8.com/)
 9. FontAwesome [link](https://fontawesome.com)
 
+Note: Testng-metrics uses above mentioned open-source libraries in report.
+
+---
+
+*Special Thanks To:*
+
+*Contributors:*
+
+1. [Krishnan Mahadevan](https://www.linkedin.com/in/krmahadevan/) [Automation GURU]
+    > - Enhanced testng-metric idea
+    > - Contributed source to get execution results on run time using testng listners
+    > - Modified Metrics.java file into Maven project
+    > - Guided to upload testng-metrics artifact into maven central
+
+*Feedback:*
+
+ - [Testng Users Community](https://groups.google.com/forum/#!forum/testng-users)
 ---
 
 Inspired from [robotframework-metrics](https://github.com/adiralashiva8/robotframework-metrics)
