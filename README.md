@@ -1,6 +1,6 @@
 # TestNG Metrics Report
 
-Creates HTML report based on testng-resutl.xml
+TestNg Metrics is a listener plugin. Which generate awesome html report without making any changes in your exisiting automation code
 
 [![HitCount](http://hits.dwyl.io/adiralashiva8/testng-metrics.svg)](http://hits.dwyl.io/adiralashiva8/testng-metrics)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
@@ -23,21 +23,44 @@ __TesntNG Metrics Overview__
  - Dashboard view of execution results
  - Top 10 test performances
  - Sort and Search Results
- - Export Results
+ - Export Results (pdf, excel,csv, print)
  - Generate email (.eml) with statisitics
  - No Installation or Code changes required
 
 ---
 
+### Pre-requisite
+
+ - JDK 8+
+ - TestNG 6+
+
+---
+
 ### How to use in Project:
 
-1. Add testng-metrics as dependency in pom.xml
-
+1. Add testng-metrics dependency in pom.xml
+   ```
+   <dependency>
+     <groupId>org.github.adiralashiva8</groupId>
+     <artifactId>testng-metrics</artifactId>
+     <version>1.0</version>
+   </dependency>
+   
+   ```
 2. Perform maven install
 
-3. Execute test cases using testNG
+3. Execute test cases
 
 4. TestNG Metrics report __metric-timestamp.html__ file will be created
+   > By default, the report will be generated at TestNG's output directory. i.e., test-output/metric-timestamp.html
+   
+---
+
+### Adding logo to report:
+
+In case you want to generate the report with custom logo, make sure you pass the JVM argument called `testng.metrics.logo`
+
+Ex: `mvn clean test -Dtestng.metrics.logo="https://mycompanylog.jpg"`
 
 ---
 
@@ -76,10 +99,9 @@ Note: Testng-metrics uses above mentioned open-source libraries in report.
 *Contributors:*
 
 1. [Krishnan Mahadevan](https://www.linkedin.com/in/krmahadevan/) [Automation GURU]
-    > - Enhanced testng-metric idea
-    > - Contributed source to get execution results on run time using testng listners
-    > - Modified Metrics.java file into Maven project
-    > - Guided to upload testng-metrics artifact into maven central
+    > - Mavenised the project ( To consume it from Maven library )
+    > - Converted the utility into a TestNG listener
+    > - Guided to publish the library onto Maven Central
 
 *Feedback:*
 

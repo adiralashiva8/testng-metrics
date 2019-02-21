@@ -190,7 +190,7 @@ public class HtmlBuilder {
             "<th>Method Name</th>\r\n      <th>Status</th>\r\n      <th>Time(s)</th>\r\n\t  <th>Error Message</th>\r\n    </tr></thead>\r\n")
         .append("<tbody>\r\n     ");
     // Method Metrics
-    gatherTestInformation(suiteResult, builder);
+    gatherNonTestInformation(suiteResult, builder);
     builder.append(
         "</tbody>\r\n   "
             + "</table>\r\n<div class=\"row\"><div class=\"col-md-12\" style=\"height:25px;width:auto;\"></div>"
@@ -259,6 +259,7 @@ public class HtmlBuilder {
             cSkipSetps++;
         }
       }
+      cTotalSteps = cPassSteps + cFailSteps + cSkipSetps;
       builder
           .append(String.format("<td>%s</td>\r\n", cTotalSteps))
           .append(String.format("<td>%s</td>\r\n", cPassSteps))
@@ -455,7 +456,8 @@ public class HtmlBuilder {
       String methodName = result.getMethod().getMethodName();
       String errorMessage = "";
       if (result.getThrowable() != null) {
-        errorMessage = org.testng.internal.Utils.longStackTrace(result.getThrowable(), false);
+    	//errorMessage = org.testng.internal.Utils.longStackTrace(result.getThrowable(), false);
+        errorMessage = result.getThrowable().getMessage();
       }
       long duration = result.getEndMillis() - result.getStartMillis();
       builder
@@ -477,4 +479,39 @@ public class HtmlBuilder {
           .append("     </tr>\r\n");
     }
   }
+  private static void gatherNonTestInformation(ISuiteResult suiteResult, StringBuilder builder) {
+	    Set<ITestResult> results = Utils.extractResults(suiteResult);
+	    for (ITestResult result : results) {
+	      if (!result.getMethod().isTest()) {
+	       
+		      String className = result.getTestClass().getName();
+		      String methodName = result.getMethod().getMethodName();
+		      String errorMessage = "";
+		      if (result.getThrowable() != null) {
+		    	//errorMessage = org.testng.internal.Utils.longStackTrace(result.getThrowable(), false);
+		        errorMessage = result.getThrowable().getMessage();
+		      }
+		      long duration = result.getEndMillis() - result.getStartMillis();
+		      builder
+		          .append("<tr>\r\n      ")
+		          .append(
+		              String.format(
+		                  "<td style=\"word-wrap: break-word;max-width: 200px; white-space: normal\">%s</td>\r\n",
+		                  className))
+		          .append(
+		              String.format(
+		                  "<td style=\"word-wrap: break-word;max-width: 250px; white-space: normal;\">%s</td>\r\n",
+		                  methodName))
+		          .append(String.format("<td>%s</td>\r\n", Utils.getStatusString(result)))
+		          .append(String.format("<td>%s</td>\r\n", duration / 1000))
+		          .append(
+		              String.format(
+		                  "<td style=\"word-wrap: break-word;max-width: 300px; white-space: normal\">%s</td>\r\n",
+		                  errorMessage))
+		          .append("     </tr>\r\n");
+	      } else {
+		      continue;
+	      }
+	    }
+	  }
 }
