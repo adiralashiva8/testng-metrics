@@ -71,7 +71,7 @@ Thanks for using testng-metrics!
 
 If you have any questions / suggestions / comments on the report, please feel free to reach me at
 
- - Email: <a href="mailto:adiralashiva8@gmail.com?Subject=Robotframework%20Metrics" target="_blank">`adiralashiva8@gmail.com`</a> 
+ - Email: <a href="mailto:adiralashiva8@gmail.com?Subject=Testng%20Metrics" target="_blank">`adiralashiva8@gmail.com`</a> 
  - LinkedIn: <a href="https://www.linkedin.com/in/shivaprasadadirala/" target="_blank">`shivaprasadadirala`</a>
  - Twitter: <a href="https://twitter.com/ShivaAdirala" target="_blank">`@ShivaAdirala`</a>
  - Mailing List (google group): <a href="https://groups.google.com/forum/embed/?place=forum/testng-metrics" target="_blank">`testng-metrics`</a>
