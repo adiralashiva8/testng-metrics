@@ -52,7 +52,7 @@ __TesntNG Metrics Overview__
 3. Execute test cases
 
 4. TestNG Metrics report __metric-timestamp.html__ file will be created
-   > By default, the report will be generated at TestNG's output directory. i.e., test-output/metric-timestamp.html
+   > By default, the report will be generated at TestNG's output directory. i.e., `test-output/metric-timestamp.html`
    
 ---
 
