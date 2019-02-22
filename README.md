@@ -41,7 +41,7 @@ __TesntNG Metrics Overview__
 1. Add testng-metrics dependency in pom.xml
    ```
    <dependency>
-     <groupId>org.github.adiralashiva8</groupId>
+     <groupId>com.github.adiralashiva8</groupId>
      <artifactId>testng-metrics</artifactId>
      <version>1.0</version>
    </dependency>
