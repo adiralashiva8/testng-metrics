@@ -3,6 +3,7 @@
 TestNg Metrics is a listener plugin. Which generate awesome html report without making any changes in your exisiting automation code
 
 [![HitCount](http://hits.dwyl.io/adiralashiva8/testng-metrics.svg)](http://hits.dwyl.io/adiralashiva8/testng-metrics)
+![Maven](https://maven-badges.herokuapp.com/maven-central/com.github.adiralashiva8/testng-metrics/badge.svg)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
 ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 ![Open Source Love png1](https://badges.frapsoft.com/os/v1/open-source.png?v=103)
