@@ -1,6 +1,8 @@
+<p><img src="https://i.ibb.co/0j28fBG/tmetricslogo.png" width="300" height="150"></p>
+
 # TestNG Metrics Report
 
-TestNg Metrics is a listener plugin. Which generate awesome html report without making any changes in your exisiting automation code
+TestNg Metrics is a custom report generated using TestNG Listener. Which generate awesome html report without making any changes in your existing automation code
 
 [![HitCount](http://hits.dwyl.io/adiralashiva8/testng-metrics.svg)](http://hits.dwyl.io/adiralashiva8/testng-metrics)
 ![Maven](https://maven-badges.herokuapp.com/maven-central/com.github.adiralashiva8/testng-metrics/badge.svg)
@@ -21,12 +23,12 @@ __TesntNG Metrics Overview__
 
 ### Key Features
 
- - Dashboard view of execution results
- - Top 10 test performances
+ - Dashboard View of execution results
+ - Top 10 Test Performances
  - Sort and Search Results
  - Export Results (pdf, excel,csv, print)
  - Generate email (.eml) with statisitics
- - No Installation or Code changes required
+ - No Code changes required
 
 ---
 
@@ -44,7 +46,7 @@ __TesntNG Metrics Overview__
    <dependency>
      <groupId>com.github.adiralashiva8</groupId>
      <artifactId>testng-metrics</artifactId>
-     <version>1.0</version>
+     <version>1.1</version>
    </dependency>
    
    ```
@@ -57,9 +59,9 @@ __TesntNG Metrics Overview__
    
 ---
 
-### Adding logo to report:
+### Customize LOGO:
 
-In case you want to generate the report with custom logo, make sure you pass the JVM argument called `testng.metrics.logo`
+In case you want to generate the report with custom LOGO, make sure you pass the JVM argument called `testng.metrics.logo`
 
 Ex: `mvn clean test -Dtestng.metrics.logo="https://mycompanylog.jpg"`
 
@@ -103,6 +105,10 @@ Note: Testng-metrics uses above mentioned open-source libraries in report.
     > - Mavenised the project ( To consume it from Maven library )
     > - Converted the utility into a TestNG listener
     > - Guided to publish the library onto Maven Central
+
+2. [Saurabh Gupta](https://www.linkedin.com/in/saurabh-gupta-24769929/)
+    > - Contributed source to display data-provider info in Test Metrics
+    > - Added brand LOGO for TestNG Metrics
 
 *Feedback:*
 
