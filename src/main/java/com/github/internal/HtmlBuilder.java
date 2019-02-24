@@ -141,20 +141,22 @@ public class HtmlBuilder {
         .append(
             "<meta content=\"width=device-width, initial-scale=1.0 \" name=\"viewport\"/>\r\n  <style>body {background-color:#F2F2F2; }\r\n\t")
         .append(
-            "body, html, table,pre,b { font-family: Calibri, Arial, sans-serif; font-size: 1em; }.pastdue { color: crimson; }\r\n\t")
+            "body, html, table,pre,b { font-family: Courier New, Arial, sans-serif; font-size: 1em; }.pastdue { color: crimson; }\r\n\t")
         .append(
             "table {border: 1px solid silver;padding: 6px; margin-left: 30px; width: 600px;}\r\n\t thead")
         .append(
             "{text-align: center;font-size: 1.1em;background-color: #B0C4DE;font-weight: bold;color: #2D2C2C;}\r\n\t tbody")
         .append("{text-align: center;}th {width: 25%;word-wrap:break-word;}\r\n</style></head>\r\n")
         .append(
-            "<body><pre>Hi Team,\r\nFollowing are the last build execution statistics.\r\n\r\n<b>Metrics:<b>\r\n\r\n</b></b></pre>\r\n\t<table>\r\n\t")
+            "<body><pre>Hi Team,\r\nFollowing are the last build execution statistics.\r\n\r\n<b>Test Status:<b>\r\n\r\n</b></b></pre>\r\n\t<table>\r\n\t")
         .append(
             "<thead>\r\n\t\t<th style=\"width: 25%;\">Total</th>\r\n\t\t<th style=\"width: 25%;\">Pass</th>\r\n\t\t")
         .append(
-            "<th style=\"width: 25%;\">Fail</th>\r\n\t\t<th style=\"width: 25%;\">Skip</th>\r\n\t </thead>\r\n\t")
+            "<th style=\"width: 25%;\">Fail</th>\r\n\t\t<th style=\"width: 25%;\">Skip</th>\r\n\t </thead>\r\n\t<tbody><tr>\r\n\t\t")
         .append(
-            "<tbody><tr>\r\n\t\t<td style=\"text-align: left;font-weight: bold;\"> TESTS </td>\r\n\t\t")
+            String.format(
+                "<td style=\"background-color: #02d8bb;text-align: center;\"> %s </td>\r\n\t\t",
+                    results.getTotal()))
         .append(
             String.format(
                 "<td style=\"background-color: #90EE90;text-align: center;\">%s</td>\r\n\t\t",
@@ -194,7 +196,7 @@ public class HtmlBuilder {
             "<th>Method Name</th>\r\n      <th>Status</th>\r\n      <th>Time(s)</th>\r\n\t  <th>Error Message</th>\r\n    </tr></thead>\r\n")
         .append("<tbody>\r\n     ");
     // Method Metrics
-    gatherNonTestInformation(suiteResult, builder);
+    gatherTestInformation(suiteResult, builder,false);
     builder.append(
         "</tbody>\r\n   "
             + "</table>\r\n<div class=\"row\"><div class=\"col-md-12\" style=\"height:25px;width:auto;\"></div>"
@@ -216,7 +218,7 @@ public class HtmlBuilder {
         .append("<tbody>\r\n     ");
 
     // Test Metrics
-    gatherTestInformation(suiteResult, builder);
+    gatherTestInformation(suiteResult, builder,true);
     builder
         .append("</tbody>\r\n   ")
         .append(
@@ -252,10 +254,9 @@ public class HtmlBuilder {
                   "<td style=\"word-wrap: break-word;max-width: 300px; white-space: normal\">%s</td>\r\n",
                   each.getKey()));
       for (ITestResult eachResult : each.getValue()) {
-		  
-		  if (!eachResult.getMethod().isTest()) {
-			continue; 
-			}
+	    if (!eachResult.getMethod().isTest()) {
+		  continue;
+		}
         switch (eachResult.getStatus()) {
           case ITestResult.SUCCESS:
             cPassSteps++;
@@ -454,24 +455,31 @@ public class HtmlBuilder {
     return builder;
   }
 
-  private static void gatherTestInformation(ISuiteResult suiteResult, StringBuilder builder) {
+  private static void gatherTestInformation(ISuiteResult suiteResult, StringBuilder builder, boolean isTest) {
     Set<ITestResult> results = Utils.extractResults(suiteResult);
     for (ITestResult result : results) {
-      if (!result.getMethod().isTest()) {
-        continue;
+      if (isTest) {
+        if (!result.getMethod().isTest()) {
+          continue;
+        }
+      } else {
+        if (result.getMethod().isTest()) {
+          continue;
+        }
       }
-      	String className = result.getTestClass().getName();
-			String methodName = result.getMethod().getMethodName();
-			String errorMessage = "";
-			Object[] testParameters = result.getParameters();
-			ArrayList<String> list = null;
 
-			if (testParameters.length > 0 && testParameters != null) {
-				list = new ArrayList(Arrays.asList(testParameters));
-				if (list.size() > 0 && list != null) {
-					methodName = methodName + "<br>(" + String.join(",", list) + ")";
-				}
-			}
+      String className = result.getTestClass().getName();
+	  String methodName = result.getMethod().getMethodName();
+	  String errorMessage = "";
+	  Object[] testParameters = result.getParameters();
+	  ArrayList<String> list = null;
+
+	  if (testParameters.length > 0 && testParameters != null) {
+		list = new ArrayList(Arrays.asList(testParameters));
+		if (list.size() > 0 && list != null) {
+		  methodName = methodName + " (" + String.join(",", list) + ")";
+		}
+	  }
 
       if (result.getThrowable() != null) {
     	//errorMessage = org.testng.internal.Utils.longStackTrace(result.getThrowable(), false);
@@ -497,39 +505,4 @@ public class HtmlBuilder {
           .append("     </tr>\r\n");
     }
   }
-  private static void gatherNonTestInformation(ISuiteResult suiteResult, StringBuilder builder) {
-	    Set<ITestResult> results = Utils.extractResults(suiteResult);
-	    for (ITestResult result : results) {
-	      if (!result.getMethod().isTest()) {
-	       
-		      String className = result.getTestClass().getName();
-		      String methodName = result.getMethod().getMethodName();
-		      String errorMessage = "";
-		      if (result.getThrowable() != null) {
-		    	//errorMessage = org.testng.internal.Utils.longStackTrace(result.getThrowable(), false);
-		        errorMessage = result.getThrowable().getMessage();
-		      }
-		      long duration = result.getEndMillis() - result.getStartMillis();
-		      builder
-		          .append("<tr>\r\n      ")
-		          .append(
-		              String.format(
-		                  "<td style=\"word-wrap: break-word;max-width: 200px; white-space: normal\">%s</td>\r\n",
-		                  className))
-		          .append(
-		              String.format(
-		                  "<td style=\"word-wrap: break-word;max-width: 250px; white-space: normal;\">%s</td>\r\n",
-		                  methodName))
-		          .append(String.format("<td>%s</td>\r\n", Utils.getStatusString(result)))
-		          .append(String.format("<td>%s</td>\r\n", duration / 1000))
-		          .append(
-		              String.format(
-		                  "<td style=\"word-wrap: break-word;max-width: 300px; white-space: normal\">%s</td>\r\n",
-		                  errorMessage))
-		          .append("     </tr>\r\n");
-	      } else {
-		      continue;
-	      }
-	    }
-	  }
 }

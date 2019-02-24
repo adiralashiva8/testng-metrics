@@ -13,12 +13,11 @@ import org.testng.xml.XmlSuite;
 
 public class MetricsListener implements IReporter {
   private StringBuilder builder = new StringBuilder();
-   String sDefaultLogo = System.getProperty("user.dir") + "\\src\\main\\resources\\tmetricslogo.png";
 
   @Override
   public void generateReport(
-      List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
-    String logo = System.getProperty("testng.metrics.logo", sDefaultLogo);
+    List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
+    String logo = System.getProperty("testng.metrics.logo", "https://i.ibb.co/0j28fBG/tmetricslogo.png");
     ExecutionResults results = Utils.computeOverResults(suites);
     builder.append(HtmlBuilder.buildHeaderAndTitle());
     builder.append(HtmlBuilder.buildDashBoard(results, logo));
