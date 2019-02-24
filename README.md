@@ -11,7 +11,7 @@ TestNg Metrics is a custom report generated using TestNG Listener. Which generat
 ---
 __TesntNG Metrics Overview__
 
- ![OVERVIEW](https://s2.gifyu.com/images/dashboard_overview.gif)
+ ![OVERVIEW](https://i.ibb.co/T88cqwS/dashboard-overview.gif)
 
 ---
 
