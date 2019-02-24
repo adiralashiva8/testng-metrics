@@ -1,12 +1,16 @@
 package com.github.internal;
 
-import com.github.internal.Utils.ExecutionResults;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
 import org.testng.ISuiteResult;
 import org.testng.ITestResult;
+
+import com.github.internal.Utils.ExecutionResults;
 
 public class HtmlBuilder {
 
@@ -248,6 +252,10 @@ public class HtmlBuilder {
                   "<td style=\"word-wrap: break-word;max-width: 300px; white-space: normal\">%s</td>\r\n",
                   each.getKey()));
       for (ITestResult eachResult : each.getValue()) {
+		  
+		  if (!eachResult.getMethod().isTest()) {
+			continue; 
+			}
         switch (eachResult.getStatus()) {
           case ITestResult.SUCCESS:
             cPassSteps++;
@@ -452,9 +460,19 @@ public class HtmlBuilder {
       if (!result.getMethod().isTest()) {
         continue;
       }
-      String className = result.getTestClass().getName();
-      String methodName = result.getMethod().getMethodName();
-      String errorMessage = "";
+      	String className = result.getTestClass().getName();
+			String methodName = result.getMethod().getMethodName();
+			String errorMessage = "";
+			Object[] testParameters = result.getParameters();
+			ArrayList<String> list = null;
+
+			if (testParameters.length > 0 && testParameters != null) {
+				list = new ArrayList(Arrays.asList(testParameters));
+				if (list.size() > 0 && list != null) {
+					methodName = methodName + "<br>(" + String.join(",", list) + ")";
+				}
+			}
+
       if (result.getThrowable() != null) {
     	//errorMessage = org.testng.internal.Utils.longStackTrace(result.getThrowable(), false);
         errorMessage = result.getThrowable().getMessage();
