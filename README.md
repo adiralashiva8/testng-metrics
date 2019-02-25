@@ -1,4 +1,4 @@
-<p><img src="https://i.ibb.co/0j28fBG/tmetricslogo.png" width="400" height="250"></p>
+<p align="center"><img src="https://i.ibb.co/0j28fBG/tmetricslogo.png" width="300" height="200"></p>
 
 TestNg Metrics is a custom report generated using TestNG Listener. Which generate awesome html report without making any changes in your existing automation code
 
