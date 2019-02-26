@@ -1,4 +1,4 @@
-<p><img src="https://i.ibb.co/0j28fBG/tmetricslogo.png" width="400" height="250"></p>
+<p align="center"><img src="https://i.ibb.co/0j28fBG/tmetricslogo.png" width="300" height="200"></p>
 
 TestNg Metrics is a custom report generated using TestNG Listener. Which generate awesome html report without making any changes in your existing automation code
 
@@ -11,7 +11,7 @@ TestNg Metrics is a custom report generated using TestNG Listener. Which generat
 ---
 __TesntNG Metrics Overview__
 
- ![OVERVIEW](https://s2.gifyu.com/images/dashboard_overview.gif)
+ ![OVERVIEW](https://i.ibb.co/T88cqwS/dashboard-overview.gif)
 
 ---
 
@@ -25,7 +25,7 @@ __TesntNG Metrics Overview__
  - Top 10 Test Performances
  - Sort and Search Results
  - Export Results (pdf, excel,csv, print)
- - Generate email (.eml) with statisitics
+ - Generate email (.eml) with statistics
  - No Code changes required
 
 ---
@@ -55,6 +55,21 @@ __TesntNG Metrics Overview__
 4. TestNG Metrics report __metric-timestamp.html__ file will be created
    > By default, the report will be generated at TestNG's output directory. i.e., `test-output/metric-timestamp.html`
    
+---
+
+### Not a Maven Project?
+
+1. Download `testng-metrics.jar` from [here](http://central.maven.org/maven2/com/github/adiralashiva8/testng-metrics/1.1/testng-metrics-1.1.jar)
+
+2. Add `testng-metrics.jar` in your project
+   > - Open Eclipse → Right Click on the project
+   > - Go to Property → Build Path → Configure Build Path
+   > - Add the `testng-metrics.jar` in the libraries using Add External Jar button
+
+3. Execute test cases
+
+4. TestNG Metrics report __metric-timestamp.html__ file will be created
+
 ---
 
 ### Customize LOGO:
