@@ -4,12 +4,14 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class FunctionalSample {
   
   @BeforeClass
-  public void beforeClass() {}
+  @Parameters({ "sUsername", "sPassword" })
+  public void beforeClass(String sUsername, String sPassword) {}
   
   @AfterClass
   public void afterClass() {}

@@ -44,7 +44,7 @@ __TesntNG Metrics Overview__
    <dependency>
      <groupId>com.github.adiralashiva8</groupId>
      <artifactId>testng-metrics</artifactId>
-     <version>1.1</version>
+     <version>1.2</version>
    </dependency>
    
    ```
