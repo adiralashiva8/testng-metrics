@@ -182,63 +182,97 @@ public class HtmlBuilder {
     return builder;
   }
 
-  // "4 of 4: Capturing method metrics..."
-  public static StringBuilder buildMethodMetricsTab(ISuiteResult suiteResult) {
+  public static StringBuilder appendMethodMetricsHeader(){
     StringBuilder builder = new StringBuilder();
-    System.out.println("4 of 4: Capturing method metrics...");
-    // METHOD METRICS TAB
-    builder
-        .append(
-            "<div class=\"tabcontent\" id=\"methodMetrics\">\r\n   <h4><b><i class=\"fa fa-table\"></i> Method Metrics</b></h4><hr/>\r\n")
-        .append(
-            "<table class=\"table table-striped table-bordered\" id=\"mm\">\r\n    <thead><tr>\r\n      <th>Class Name</th>\r\n")
-        .append(
-            "<th>Method Name</th>\r\n      <th>Status</th>\r\n      <th>Time(s)</th>\r\n\t  <th>Error Message</th>\r\n    </tr></thead>\r\n")
-        .append("<tbody>\r\n     ");
-    // Method Metrics
-    gatherTestInformation(suiteResult, builder,false);
+	System.out.println("4 of 4: Capturing method metrics...");
+	builder
+    .append(
+        "<div class=\"tabcontent\" id=\"methodMetrics\">\r\n   <h4><b><i class=\"fa fa-table\"></i> Method Metrics</b></h4><hr/>\r\n")
+    .append(
+        "<table class=\"table table-striped table-bordered\" id=\"mm\">\r\n    <thead><tr>\r\n      <th>Class Name</th>\r\n")
+    .append(
+        "<th>Method Name</th>\r\n      <th>Status</th>\r\n      <th>Time(s)</th>\r\n\t  <th>Error Message</th>\r\n    </tr></thead>\r\n")
+    .append("<tbody>\r\n     ");
+	return builder;
+  }
+
+  public static StringBuilder appendMethodMetricsFooter(){
+    StringBuilder builder = new StringBuilder();
     builder.append(
         "</tbody>\r\n   "
             + "</table>\r\n<div class=\"row\"><div class=\"col-md-12\" style=\"height:25px;width:auto;\"></div>"
             + "</div></div>");
+	return builder;
+  }
+
+  // "4 of 4: Capturing method metrics..."
+  public static StringBuilder buildMethodMetricsTab(ISuiteResult suiteResult) {
+    // METHOD METRICS TAB
+	StringBuilder builder = new StringBuilder();
+    // Method Metrics
+    gatherTestInformation(suiteResult, builder,false);
     return builder;
+  }
+
+  public static StringBuilder appendTestMetricsHeader(){
+    StringBuilder builder = new StringBuilder();
+    System.out.println("3 of 4: Capturing test metrics...");
+	builder
+    .append(
+        "<div class=\"tabcontent\" id=\"testMetrics\">\r\n   <h4><b><i class=\"fa fa-table\"></i> Test Metrics</b></h4><hr/>\r\n")
+    .append(
+        "<table class=\"table table-striped table-bordered\" id=\"tm\">\r\n    <thead><tr>\r\n      <th>Class Name</th>\r\n")
+    .append(
+        "<th>Test Name</th>\r\n      <th>Status</th>\r\n      <th>Time(s)</th>\r\n\t  <th>Error Message</th>\r\n    </tr></thead>\r\n")
+    .append("<tbody>\r\n     ");
+	return builder;
+  }
+
+  public static StringBuilder appendTestMetricsFooter(){
+    StringBuilder builder = new StringBuilder();
+    builder
+    .append("</tbody>\r\n   ")
+    .append(
+        "</table>\r\n<div class=\"row\"><div class=\"col-md-12\" style=\"height:25px;width:auto;\"></div>")
+    .append("</div></div>");
+	return builder;
   }
 
   // "3 of 4: Capturing test metrics..."
   public static StringBuilder buildTestMetricsTab(ISuiteResult suiteResult) {
-    System.out.println("3 of 4: Capturing test metrics...");
     StringBuilder builder = new StringBuilder();
-    builder
-        .append(
-            "<div class=\"tabcontent\" id=\"testMetrics\">\r\n   <h4><b><i class=\"fa fa-table\"></i> Test Metrics</b></h4><hr/>\r\n")
-        .append(
-            "<table class=\"table table-striped table-bordered\" id=\"tm\">\r\n    <thead><tr>\r\n      <th>Class Name</th>\r\n")
-        .append(
-            "<th>Test Name</th>\r\n      <th>Status</th>\r\n      <th>Time(s)</th>\r\n\t  <th>Error Message</th>\r\n    </tr></thead>\r\n")
-        .append("<tbody>\r\n     ");
-
     // Test Metrics
     gatherTestInformation(suiteResult, builder,true);
-    builder
-        .append("</tbody>\r\n   ")
-        .append(
-            "</table>\r\n<div class=\"row\"><div class=\"col-md-12\" style=\"height:25px;width:auto;\"></div>")
-        .append("</div></div>");
     return builder;
+  }
+
+  public static StringBuilder appendClassMetricsHeader() {
+	  System.out.println("2 of 4: Capturing class metrics...");
+	  StringBuilder builder = new StringBuilder();
+	  builder
+      .append(
+          "<div class=\"tabcontent\" id=\"classMetrics\">\r\n   <h4><b><i class=\"fa fa-table\"></i> Class Metrics</b></h4><hr/>\r\n")
+      .append(
+          "<table class=\"table table-striped table-bordered\" id=\"cm\">\r\n<thead><tr>\r\n<th>Class Name</th>\r\n<th>Total Methods</th>\r\n")
+      .append(
+          "<th>Passed Methods</th>\r\n<th>Failed Methods</th>\r\n\t<th>Skipped Methods</th>\r\n</tr></thead>\r\n<tbody>\r\n");
+	  return builder;
+  }
+
+  public static StringBuilder appendClassMetricsFooter() {
+	  StringBuilder builder = new StringBuilder();
+	  builder
+      .append("</tbody>\r\n   ")
+      .append(
+          "</table>\r\n<div class=\"row\"><div class=\"col-md-12\" style=\"height:25px;width:auto;\"></div>")
+      .append("</div></div>");
+	  return builder;
   }
 
   // "2 of 4: Capturing class metrics..."
   public static StringBuilder buildClassMetrics(ISuiteResult suiteResult) {
-    System.out.println("2 of 4: Capturing class metrics...");
     // CLASS METRICS TAB
     StringBuilder builder = new StringBuilder();
-    builder
-        .append(
-            "<div class=\"tabcontent\" id=\"classMetrics\">\r\n   <h4><b><i class=\"fa fa-table\"></i> Class Metrics</b></h4><hr/>\r\n")
-        .append(
-            "<table class=\"table table-striped table-bordered\" id=\"cm\">\r\n<thead><tr>\r\n<th>Class Name</th>\r\n<th>Total Methods</th>\r\n")
-        .append(
-            "<th>Passed Methods</th>\r\n<th>Failed Methods</th>\r\n\t<th>Skipped Methods</th>\r\n</tr></thead>\r\n<tbody>\r\n");
 
     Set<ITestResult> allResults = Utils.extractResults(suiteResult);
     Map<String, List<ITestResult>> classMap = Utils.asMap(allResults);
@@ -281,11 +315,6 @@ public class HtmlBuilder {
           .append("</tr>\r\n ");
     }
 
-    builder
-        .append("</tbody>\r\n   ")
-        .append(
-            "</table>\r\n<div class=\"row\"><div class=\"col-md-12\" style=\"height:25px;width:auto;\"></div>")
-        .append("</div></div>");
     return builder;
   }
 
@@ -327,7 +356,8 @@ public class HtmlBuilder {
         .append(
             "</li>\r\n      <li class=\"nav-item\">\r\n       <a class=\"tablink nav-link\" href=\"#\" onclick=\"openPage('statistics', this, 'orange');\">")
         .append(
-            "<i class=\"fa fa-envelope-o\"></i> Email Metrics</a>\r\n      </li>\r\n     </ul>\r\n    </div>\r\n   </nav>\r\n  </div>\r\n </div>");
+            "<i class=\"fa fa-envelope-o\"></i> Email Metrics</a>\r\n      </li>\r\n")
+         .append("     </ul>\r\n    </div>\r\n   </nav>\r\n  </div>\r\n </div>");
 
     // DASHBOARD CONTENT
     builder

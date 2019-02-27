@@ -33,11 +33,56 @@ public class MetricsListener implements IReporter {
   }
 
   private void generateReport(ISuite suite) {
+	  generateClassMetrics(suite);
+	  generateTestMetrics(suite);
+	  generateMethodMetrics(suite);
+  }
+
+  private void generateClassMetrics(ISuite suite){
     Collection<ISuiteResult> suiteResults = suite.getResults().values();
-    for (ISuiteResult suiteResult : suiteResults) {
-      builder.append(HtmlBuilder.buildClassMetrics(suiteResult));
-      builder.append(HtmlBuilder.buildTestMetricsTab(suiteResult));
-      builder.append(HtmlBuilder.buildMethodMetricsTab(suiteResult));
+	int index = 0;
+	int size = suiteResults.size();
+	for (ISuiteResult suiteResult : suiteResults) {
+	  if (index == 0) {
+	    builder.append(HtmlBuilder.appendClassMetricsHeader());
+	  }
+	  builder.append(HtmlBuilder.buildClassMetrics(suiteResult));
+	  if (index == size-1) {
+	    builder.append(HtmlBuilder.appendClassMetricsFooter());
+	  }
+	  index++;
+    }
+  }
+
+  private void generateTestMetrics(ISuite suite){
+    Collection<ISuiteResult> suiteResults = suite.getResults().values();
+	int index = 0;
+	int size = suiteResults.size();
+	for (ISuiteResult suiteResult : suiteResults) {
+	  if (index == 0) {
+	    builder.append(HtmlBuilder.appendTestMetricsHeader());
+	  }
+	  builder.append(HtmlBuilder.buildTestMetricsTab(suiteResult));
+	  if (index == size-1) {
+	    builder.append(HtmlBuilder.appendTestMetricsFooter());
+	  }
+	  index++;
+    }
+  }
+
+  private void generateMethodMetrics(ISuite suite){
+    Collection<ISuiteResult> suiteResults = suite.getResults().values();
+	int index = 0;
+	int size = suiteResults.size();
+	for (ISuiteResult suiteResult : suiteResults) {
+	  if (index == 0) {
+	    builder.append(HtmlBuilder.appendMethodMetricsHeader());
+	  }
+	  builder.append(HtmlBuilder.buildMethodMetricsTab(suiteResult));
+	  if (index == size-1) {
+	    builder.append(HtmlBuilder.appendMethodMetricsFooter());
+	  }
+	  index++;
     }
   }
 }
