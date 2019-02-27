@@ -3,8 +3,10 @@
 <suite name="Suite">
   <parameter name="archive.testng.metrics.report" value = "true"/>
   <test name="Test">
-    <classes>
-      <class name="com.github.functional.FunctionalSample"/>
-    </classes>
+   <parameter name="sUsername" value="testuser_1"/>
+   <parameter name="sPassword" value="Test@123"/>
+     <classes>
+       <class name="com.github.functional.FunctionalSample"/>
+     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

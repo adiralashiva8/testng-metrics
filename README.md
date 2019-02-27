@@ -44,7 +44,7 @@ __TesntNG Metrics Overview__
    <dependency>
      <groupId>com.github.adiralashiva8</groupId>
      <artifactId>testng-metrics</artifactId>
-     <version>1.1</version>
+     <version>1.2</version>
    </dependency>
    
    ```
@@ -59,7 +59,7 @@ __TesntNG Metrics Overview__
 
 ### Not a Maven Project?
 
-1. Download `testng-metrics.jar` from [here](http://central.maven.org/maven2/com/github/adiralashiva8/testng-metrics/1.1/testng-metrics-1.1.jar)
+1. Download `testng-metrics.jar` from [here](http://central.maven.org/maven2/com/github/adiralashiva8/testng-metrics/1.2/testng-metrics-1.2.jar)
 
 2. Add `testng-metrics.jar` in your project
    > - Open Eclipse → Right Click on the project
