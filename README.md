@@ -128,7 +128,7 @@ Note: Testng-metrics uses above mentioned open-source libraries in report.
 
 *Feedback:*
 
-1. [Venkateswara Reddy G](gvreddyreddy@gmail.com)
+1. [Venkateswara Reddy G](https://www.linkedin.com/in/gvreddyreddy/)
 
 2. [Testng Users Community](https://groups.google.com/forum/#!forum/testng-users)
 
