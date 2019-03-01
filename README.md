@@ -44,7 +44,7 @@ __TesntNG Metrics Overview__
    <dependency>
      <groupId>com.github.adiralashiva8</groupId>
      <artifactId>testng-metrics</artifactId>
-     <version>1.2</version>
+     <version>1.4</version>
    </dependency>
    
    ```
@@ -59,7 +59,7 @@ __TesntNG Metrics Overview__
 
 ### Not a Maven Project?
 
-1. Download `testng-metrics.jar` from [here](http://central.maven.org/maven2/com/github/adiralashiva8/testng-metrics/1.2/testng-metrics-1.2.jar)
+1. Download `testng-metrics.jar` from [here](http://central.maven.org/maven2/com/github/adiralashiva8/testng-metrics/1.4/testng-metrics-1.4.jar)
 
 2. Add `testng-metrics.jar` in your project
    > - Open Eclipse → Right Click on the project
@@ -133,9 +133,15 @@ Note: Testng-metrics uses above mentioned open-source libraries in report.
     > - Contributed source to display data-provider info in Test Metrics
     > - Added brand LOGO for TestNG Metrics
 
+3. [Nainappa Illi](https://www.linkedin.com/in/nainappa-illi-97673231/)
+    > - Contributed source to archive test-output folder
+
 *Feedback:*
 
- - [Testng Users Community](https://groups.google.com/forum/#!forum/testng-users)
+1. [Venkateswara Reddy G](https://www.linkedin.com/in/gvreddyreddy/)
+
+2. [Testng Users Community](https://groups.google.com/forum/#!forum/testng-users)
+
 ---
 
 Inspired from [robotframework-metrics](https://github.com/adiralashiva8/robotframework-metrics)
