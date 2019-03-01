@@ -26,7 +26,7 @@ import com.github.internal.Utils.ExecutionResults;
 public class MetricsListener implements IReporter, ITestListener {
   private StringBuilder builder = new StringBuilder();
   private static String outdir;
-
+  private static String executionTime = "";
   @Override
   public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites,
       String outputDirectory) {
@@ -70,18 +70,28 @@ public class MetricsListener implements IReporter, ITestListener {
 
   private void generateTestMetrics(ISuite suite){
     Collection<ISuiteResult> suiteResults = suite.getResults().values();
-	int index = 0;
-	int size = suiteResults.size();
-	for (ISuiteResult suiteResult : suiteResults) {
-	  if (index == 0) {
-	    builder.append(HtmlBuilder.appendTestMetricsHeader());
-	  }
-	  builder.append(HtmlBuilder.buildTestMetricsTab(suiteResult));
-	  if (index == size-1) {
-	    builder.append(HtmlBuilder.appendTestMetricsFooter());
-	  }
-	  index++;
+    int index = 0;
+    int size = suiteResults.size();
+    long totalTime = 0;
+    for (ISuiteResult eachRslt : suite.getResults().values()) {
+      ITestContext ctx = eachRslt.getTestContext();
+      Date start = ctx.getStartDate();
+      Date end = ctx.getEndDate();
+      long ms = end.getTime() - start.getTime();
+      totalTime += ms;
     }
+    executionTime = Long.toString(totalTime/1000);
+    for (ISuiteResult suiteResult : suiteResults) {
+      if (index == 0) {
+        builder.append(HtmlBuilder.appendTestMetricsHeader(executionTime));
+      }
+      builder.append(HtmlBuilder.buildTestMetricsTab(suiteResult));
+      if (index == size-1) {
+        builder.append(HtmlBuilder.appendTestMetricsFooter());
+      }
+      index++;
+    }
+    
   }
 
   private void generateMethodMetrics(ISuite suite){
