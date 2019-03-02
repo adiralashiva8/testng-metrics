@@ -11,13 +11,34 @@ public class FunctionalSample {
   
   @BeforeClass
   @Parameters({ "sUsername", "sPassword" })
-  public void beforeClass(String sUsername, String sPassword) {}
+  public void beforeClass(String sUsername, String sPassword) {
+	  try {
+		Thread.sleep(5000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+  }
   
   @AfterClass
-  public void afterClass() {}
+  public void afterClass() {
+	  try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+  }
 
   @Test
-  public void passingTest() {}
+  public void passingTest() {
+	  try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+  }
 
   @Test
   public void failingTest() {
@@ -31,7 +52,14 @@ public class FunctionalSample {
   }
 
   @Test(dependsOnMethods = {"failingTest"})
-  public void skippingTest() {}
+  public void skippingTest() {
+	  try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+  }
   
   @DataProvider(name = "dataProviderTest")
   public static Object[][] credentials() {
@@ -40,8 +68,15 @@ public class FunctionalSample {
 
   @Test(dataProvider = "dataProviderTest")
   public void dataProviderTest(String sUsername, String sPassword) {
+	  try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     if (sUsername.contentEquals("testuser_2")) {
       Assert.assertEquals("TestNG", "TestNGMetrics");
+      
 	}
   }
 }

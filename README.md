@@ -78,15 +78,31 @@ In case you want to generate the report with custom LOGO, make sure you pass the
 
 Ex: `mvn clean test -Dtestng.metrics.logo="https://mycompanylog.jpg"`
 
+From testng.xml use following lines:
+```
+<method-selectors>
+  <method-selector>
+    <script language="beanshell"><![CDATA[ System.setProperty("testng.metrics.logo","https://mycompanylog.jpg");return true;]]>
+    </script>
+  </method-selector>
+</method-selectors>
+```
+
 ---
 
 ### Archiving Reports:
 
-If you want to archive the entire "test-output" folder along with testng-metrics report, add the below parameter at suite level in your testng.xml file `<parameter name="archive.testng.metrics.report" value = "true"/>`. You can turn off this feature by either removing this parameter from testng file or by changing the value to 'false'.
+If you want to archive the entire `test-output` folder along with `testng-metrics report`, add the below parameter at suite level in your `testng.xml` file 
+
+ > `<parameter name="archive.testng.metrics.report" value = "true"/>`.
+
+You can turn off this feature by either removing this parameter from testng file or by changing the value to `false`.
 
 Refer the testng.xml file in the repo.
 
-This will create a folder in your `.user/<uruserid>/TestNg_Metrics_Reports/<year>/<month>/<ddMMMyy_hhmmss_TestExecution>` 
+This will create a folder in your: 
+
+> `.current.dir/TestNg_Metrics_Reports/<Results_dd_MMM_yy_hh_mm_ss>` 
 
 ---
 

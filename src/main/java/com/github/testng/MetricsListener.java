@@ -3,7 +3,6 @@ package com.github.testng;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
@@ -26,7 +25,7 @@ import com.github.internal.Utils.ExecutionResults;
 public class MetricsListener implements IReporter, ITestListener {
   private StringBuilder builder = new StringBuilder();
   private static String outdir;
-  private static String executionTime = "";
+
   @Override
   public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites,
       String outputDirectory) {
@@ -80,10 +79,12 @@ public class MetricsListener implements IReporter, ITestListener {
       long ms = end.getTime() - start.getTime();
       totalTime += ms;
     }
-    executionTime = Long.toString(totalTime/1000);
+    long secs = totalTime / 1000;
+    String executionTimeFormat = String.format("%02d:%02d:%02d", secs / 3600, (secs % 3600) / 60, secs % 60);
+    
     for (ISuiteResult suiteResult : suiteResults) {
       if (index == 0) {
-        builder.append(HtmlBuilder.appendTestMetricsHeader(executionTime));
+        builder.append(HtmlBuilder.appendTestMetricsHeader(executionTimeFormat));
       }
       builder.append(HtmlBuilder.buildTestMetricsTab(suiteResult));
       if (index == size-1) {
@@ -118,43 +119,37 @@ public class MetricsListener implements IReporter, ITestListener {
     if(archive_report==null){
       archive_report = "false";
     }
-    Method f;
+    Method customMethod;
     outdir = "";
     if (archive_report.equalsIgnoreCase("yes") || archive_report.equalsIgnoreCase("true")) {
       String archivePath = "";
       try {
-        f = TestNG.class.getMethod("setOutputDirectory", String.class);
-        DateFormat dtYearFormat = new SimpleDateFormat("yyyy");
-        DateFormat dtMonthFormat = new SimpleDateFormat("M");
-        String strCurrYear = dtYearFormat.format(new Date());
-        String strCurrMonth = dtMonthFormat.format(new Date());
-        archivePath = System.getProperty("user.home") + File.separator + "TestNg_Metrics_Reports"
-            + File.separator + File.separator + strCurrYear + File.separator
-            + theMonth(Integer.parseInt(strCurrMonth)) + File.separator;
-        archivePath +=
-            new SimpleDateFormat("ddMMMyy_hhmmss").format(new Date()) + "_" + "TestExecution";
+    	customMethod = TestNG.class.getMethod("setOutputDirectory", String.class);
+        archivePath = System.getProperty("user.dir") + File.separator + "TestNg_Metrics_Reports" + File.separator;
+        archivePath += "Results_" + new SimpleDateFormat("dd_MMM_yy_hh_mm_ss").format(new Date());
         try {
           if (!(new File(archivePath).mkdirs())) {
             throw new ReportConfigException("Failed to create the archive report directory");
           }
-        } catch (Exception e) {
-          throw new ReportConfigException(e.getMessage(), e);
+        } catch (Exception exception) {
+          throw new ReportConfigException(exception.getMessage(), exception);
         }
         outdir = archivePath;
-        Object a[] = {outdir};
-        f.invoke(TestNG.getDefault(), a);
-      } catch (Exception e) {
+        Object customObject[] = {outdir};
+        customMethod.invoke(TestNG.getDefault(), customObject);
+        System.out.println("Custom output folder created at: " + outdir);
+      } catch (Exception exception) {
         // e.printStackTrace();
-        throw new ReportConfigException("Unable to set archive report directory", e);
+        throw new ReportConfigException("Unable to set archive report directory", exception);
       }
     } else {
       try {
-        f = TestNG.class.getMethod("getOutputDirectory");
-        Object a[] = {};
-        outdir = (String) f.invoke(TestNG.getDefault(), a);
-      } catch (Exception e) {
+    	customMethod = TestNG.class.getMethod("getOutputDirectory");
+        Object customObject[] = {};
+        outdir = (String) customMethod.invoke(TestNG.getDefault(), customObject);
+      } catch (Exception exception) {
         // e.printStackTrace();
-        throw new ReportConfigException("Unable to read report directory", e);
+        throw new ReportConfigException("Unable to read report directory", exception);
       }
     }
 
@@ -163,14 +158,14 @@ public class MetricsListener implements IReporter, ITestListener {
   @SuppressWarnings("deprecation")
   @Override
   public void onFinish(ITestContext context) {
-    Method f;
+    Method customizedFinish;
     try {
-      f = TestNG.class.getMethod("getOutputDirectory");
-      Object a[] = {};
-      outdir = (String) f.invoke(TestNG.getDefault(), a);
+      customizedFinish = TestNG.class.getMethod("getOutputDirectory");
+      Object customObject[] = {};
+      outdir = (String) customizedFinish.invoke(TestNG.getDefault(), customObject);
 
-    } catch (Exception e) {
-      e.printStackTrace();
+    } catch (Exception exception) {
+      exception.printStackTrace();
     }
   }
 
@@ -202,12 +197,6 @@ public class MetricsListener implements IReporter, ITestListener {
   @Override
   public void onTestFailedWithTimeout(ITestResult result) {
     onTestFailure(result);
-  }
-
-  private static String theMonth(int month) {
-    String[] monthNames = {"January", "February", "March", "April", "May", "June", "July", "August",
-        "September", "October", "November", "December"};
-    return monthNames[month - 1];
   }
 
   public static String getOutdir() {
