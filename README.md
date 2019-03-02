@@ -80,6 +80,16 @@ Ex: `mvn clean test -Dtestng.metrics.logo="https://mycompanylog.jpg"`
 
 ---
 
+### Archiving Reports:
+
+If you want to archive the entire "test-output" folder along with testng-metrics report, add the below parameter at suite level in your testng.xml file `<parameter name="archive.testng.metrics.report" value = "true"/>`. You can turn off this feature by either removing this parameter from testng file or by changing the value to 'false'.
+
+Refer the testng.xml file in the repo.
+
+This will create a folder in your `.user/<uruserid>/TestNg_Metrics_Reports/<year>/<month>/<ddMMMyy_hhmmss_TestExecution>` 
+
+---
+
 Thanks for using testng-metrics!
 
  - What is your opinion of this report?

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
+  <parameter name="archive.testng.metrics.report" value = "true"/>
   <test name="Test">
    <parameter name="sUsername" value="testuser_1"/>
    <parameter name="sPassword" value="Test@123"/>

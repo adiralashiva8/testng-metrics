@@ -214,12 +214,12 @@ public class HtmlBuilder {
     return builder;
   }
 
-  public static StringBuilder appendTestMetricsHeader(){
+  public static StringBuilder appendTestMetricsHeader(String executionTime){
     StringBuilder builder = new StringBuilder();
     System.out.println("3 of 4: Capturing test metrics...");
 	builder
     .append(
-        "<div class=\"tabcontent\" id=\"testMetrics\">\r\n   <h4><b><i class=\"fa fa-table\"></i> Test Metrics</b></h4><hr/>\r\n")
+        "<div class=\"tabcontent\" id=\"testMetrics\">\r\n   <h4><b><i class=\"fa fa-table\"></i> Test Metrics</b></h4><hr/> <h6 style=\"color:#f47a42\"><b>Total Execution Time: "+executionTime+" Sec.</b></h6>\r\n")
     .append(
         "<table class=\"table table-striped table-bordered\" id=\"tm\">\r\n    <thead><tr>\r\n      <th>Class Name</th>\r\n")
     .append(
