@@ -1,6 +1,5 @@
 package com.github.internal;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -540,17 +539,9 @@ public class HtmlBuilder {
 	  String methodName = result.getMethod().getMethodName();
 	  String errorMessage = "";
 	  Object[] testParameters = result.getParameters();
-	  ArrayList<String> list = null;
 
-	  try {
-	    if (testParameters.length > 0 && testParameters != null) {
-		  list = new ArrayList(Arrays.asList(testParameters));
-		  if (list.size() > 0 && list != null) {
-		    methodName = methodName + " (" + String.join(",", list.toString()) + ")";
-		  }
-	    }
-	  } catch (Exception e) {
-	    e.printStackTrace();
+	  if (testParameters.length > 0 && testParameters != null) {
+		  methodName = methodName + " (" + Arrays.toString(testParameters) + ")";
 	  }
 
       if (result.getThrowable() != null) {
