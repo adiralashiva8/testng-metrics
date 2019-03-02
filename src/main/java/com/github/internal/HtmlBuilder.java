@@ -19,15 +19,14 @@ public class HtmlBuilder {
     StringBuilder builder = new StringBuilder();
     builder
         .append(
-            "<script>\r\n function createPieChart(passed, failed, skipped, ignored, retried, ChartID, ChartName) {\r\n")
+            "<script>\r\n function createPieChart(passed, failed, skipped, ChartID, ChartName) {\r\n")
         .append("var status = [];\r\n  status.push(['Status', 'Percentage']);\r\n")
         .append(
-            "status.push(['PASS', parseInt(passed)], ['FAIL', parseInt(failed)],['SKIP', parseInt(skipped)]"
-            + ",['IGNORE', parseInt(ignored)],['RETRY', parseInt(retried)]);\r\n")
+            "status.push(['PASS', parseInt(passed)], ['FAIL', parseInt(failed)],['SKIP', parseInt(skipped)]);\r\n")
         .append(
             "var data = google.visualization.arrayToDataTable(status);\r\n  var options = {\r\n    pieHole: 0.6,\r\n    legend: 'none',\r\n")
         .append(
-            "chartArea: {\r\n      width: \"95%\",\r\n      height: \"90%\"\r\n    },\r\n    colors: ['#4CAF50','#f44336','#CCCC00','#616161','#669999'],\r\n  };\r\n")
+            "chartArea: {\r\n      width: \"95%\",\r\n      height: \"90%\"\r\n    },\r\n    colors: ['#4CAF50','#f44336','#CCCC00'],\r\n  };\r\n")
         .append(
             "var chart = new google.visualization.PieChart(document.getElementById(ChartID));\r\n  chart.draw(data, options);\r\n}\r\n</script>\r\n")
         .append(
@@ -151,34 +150,25 @@ public class HtmlBuilder {
         .append(
             "<body><pre>Hi Team,\r\nFollowing are the last build execution statistics.\r\n\r\n<b>Test Status:<b>\r\n\r\n</b></b></pre>\r\n\t<table>\r\n\t")
         .append(
-            "<thead>\r\n\t\t<th style=\"width: 16.6%;\">Total</th>\r\n\t\t<th style=\"width: 16.6%;\">Pass</th>\r\n\t\t")
+            "<thead>\r\n\t\t<th style=\"width: 25%;\">Total</th>\r\n\t\t<th style=\"width: 25%;\">Pass</th>\r\n\t\t")
         .append(
-            "<th style=\"width: 16.6%;\">Fail</th>\r\n\t\t<th style=\"width: 16.6%;\">Skip</th>\r\n\t"
-            + "<th style=\"width: 16.6%;\">Ignore</th>\r\n\t\t<th style=\"width: 16.6%;\">Retry</th>\r\n\t"
+            "<th style=\"width: 25%;\">Fail</th>\r\n\t\t<th style=\"width: 25%;\">Skip</th>\r\n\t"
             + " </thead>\r\n\t<tbody><tr>\r\n\t\t")
         .append(
             String.format(
-                "<td style=\"text-align: center;\"> %s </td>\r\n\t\t",
+                "<td style=\"background-color: #009688;text-align: center;\"> %s </td>\r\n\t\t",
                     results.getTotal()))
         .append(
             String.format(
-                "<td style=\"text-align: center;\">%s</td>\r\n\t\t",
+                "<td style=\"background-color: #4CAF50;text-align: center;\">%s</td>\r\n\t\t",
                 results.getPassed()))
         .append(
             String.format(
-                "<td style=\"text-align: center;\">%s</td>", results.getFailed()))
+                "<td style=\"background-color: #f44336;text-align: center;\">%s</td>", results.getFailed()))
         .append(
             String.format(
-                "\r\n\t\t<td style=\"text-align: center;\">%s</td>\r\n\t",
+                "\r\n\t\t<td style=\"background-color: #CCCC00;text-align: center;\">%s</td>\r\n\t",
                 results.getSkipped()))
-        .append(
-                String.format(
-                    "\r\n\t\t<td style=\"text-align: center;\">%s</td>\r\n\t",
-                    results.getIgnored()))
-        .append(
-                String.format(
-                    "\r\n\t\t<td style=\"text-align: center;\">%s</td>\r\n\t",
-                    results.getRetried()))
         .append("</tr></tbody>\r\n\t</table>\r\n\r\n</body></html></textarea>\r\n</div></div>");
     return builder;
   }
@@ -401,14 +391,6 @@ public class HtmlBuilder {
                 "<div class=\"col-md\"><a class=\"tile tile-skip\">%s<p style=\"font-size:15px\">Skip</p></a></div>\r\n   ",
                 results.getSkipped()))
         .append(
-                String.format(
-                    "<div class=\"col-md\"><a class=\"tile tile-ignore\">%s<p style=\"font-size:15px\">Ignored</p></a></div>\r\n   ",
-                    results.getIgnored()))
-        .append(
-                String.format(
-                    "<div class=\"col-md\"><a class=\"tile tile-retry\">%s<p style=\"font-size:15px\">Retry</p></a></div>\r\n   ",
-                    results.getRetried()))
-        .append(
             "</div><hr/>\r\n<div class=\"row\">\r\n<div class=\"col-md-4\" style=\"background-color:white;height:350px;width:auto;border:groove;\">\r\n")
         .append("<span style=\"font-weight:bold\">Test Status:</span>\r\n     <div id=\"testChartID\" style=\"height:280px;width:auto;\"></div>\r\n")
         .append(
@@ -431,8 +413,8 @@ public class HtmlBuilder {
             "window.onload = function(){\r\n    executeDataTable('#cm',3);\r\n    executeDataTable('#tm',3);\r\n\texecuteDataTable('#mm',3);\r\n\t")
         .append(
             String.format(
-                "createPieChart(%1$s,%2$s,%3$s,%4$s,%5$s,'testChartID','Test Status:');\r\n\t",
-                results.getPassed(), results.getFailed(), results.getSkipped(), results.getIgnored(), results.getRetried()))
+                "createPieChart(%1$s,%2$s,%3$s,'testChartID','Test Status:');\r\n\t",
+                results.getPassed(), results.getFailed(), results.getSkipped()))
         .append("createBarGraph('#cm',0,3,5,'classBarID','Number of failures ','Class'); \r\n\t")
         .append("createBarGraph('#tm',1,3,10,'testsBarID','Elapsed Time(s) ','Test');\r\n\t")
         .append("createBarGraph('#mm',1,3,10,'methodsBarID','Elapsed Time(s) ','Method');\r\n\t};\r\n   </script>")
@@ -534,8 +516,6 @@ public class HtmlBuilder {
             "-webkit-border-radius: 5px;margin-bottom: 5px;position: relative;text-align: center;color: white!important;}\r\n")
         .append(
             ".tile.tile-fail {background: #f44336!important;}.tile.tile-pass {background: #4CAF50!important;}\r\n")
-        .append(
-                ".tile.tile-ignore {background: #616161!important;}.tile.tile-retry {background: #669999!important;}\r\n")
         .append(
             ".tile.tile-info {background: #009688!important;}.tile.tile-skip {background: #CCCC00!important;}.dt-buttons {margin-left: 5px;}\r\n</style></head></html>");
     builder.append("<body>");

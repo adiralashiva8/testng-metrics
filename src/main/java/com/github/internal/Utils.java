@@ -28,8 +28,11 @@ public class Utils {
     private int ignored = 0;
     private int retried = 0;
 
-    int getTotal() {
+    /*int getTotal() {
       return getPassed() + getFailed() + getSkipped() + getIgnored() + getRetried();
+    }*/
+    int getTotal() {
+        return getPassed() + getFailed() + getSkipped() + getRetried();
     }
 
     int getPassed() {
