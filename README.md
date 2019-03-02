@@ -9,11 +9,6 @@ TestNg Metrics is a custom report generated using TestNG Listener. Which generat
 ![Open Source Love png1](https://badges.frapsoft.com/os/v1/open-source.png?v=103)
 
 ---
-__TesntNG Metrics Overview__
-
- ![OVERVIEW](https://i.ibb.co/T88cqwS/dashboard-overview.gif)
-
----
 
   - __Sample Report__ [link](https://testng-metrics.netlify.com/)
 
@@ -74,19 +69,22 @@ __TesntNG Metrics Overview__
 
 ### Customize LOGO:
 
-In case you want to generate the report with custom LOGO, make sure you pass the JVM argument called `testng.metrics.logo`
+Want to use Custom LOGO in testng-metrics then update `testng.metrics.logo`
 
-Ex: `mvn clean test -Dtestng.metrics.logo="https://mycompanylog.jpg"`
+ - From command line: 
+   > `mvn clean test -Dtestng.metrics.logo="https://mycompanylog.jpg"`
 
-From testng.xml use following lines:
-```
-<method-selectors>
-  <method-selector>
-    <script language="beanshell"><![CDATA[ System.setProperty("testng.metrics.logo","https://mycompanylog.jpg");return true;]]>
-    </script>
-  </method-selector>
-</method-selectors>
-```
+ - From testng.xml: Place following lines in testng.xml
+   ```
+   <method-selectors>
+    <method-selector>
+      <script language="beanshell">
+        <![CDATA[ System.setProperty("testng.metrics.logo",
+          "https://mycompanylog.jpg");return true;]]>
+      </script>
+    </method-selector>
+  </method-selectors>
+  ```
 
 ---
 
