@@ -46,7 +46,6 @@ TestNg Metrics is a custom report generated using TestNG Listener. Which generat
      <artifactId>testng-metrics</artifactId>
      <version>1.5</version>
    </dependency>
-   
    ```
 2. Perform maven install
 
