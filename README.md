@@ -95,16 +95,16 @@ Want to use Custom LOGO in testng-metrics then update `testng.metrics.logo` JVM 
    > `mvn clean test -Dtestng.metrics.logo="https://mycompanylog.jpg"`
 
  - From testng.xml: Place following lines in testng.xml
-   ```
-   <method-selectors>
-     <method-selector>
-       <script language="beanshell">
-         <![CDATA[ System.setProperty("testng.metrics.logo",
-           "https://mycompanylog.jpg");return true;]]>
-       </script>
-     </method-selector>
-   </method-selectors>
-  ```
+```
+     <method-selectors>
+       <method-selector>
+         <script language="beanshell">
+           <![CDATA[ System.setProperty("testng.metrics.logo",
+             "https://mycompanylog.jpg");return true;]]>
+         </script>
+       </method-selector>
+     </method-selectors>
+```
 
 ---
 
