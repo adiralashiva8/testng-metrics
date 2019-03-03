@@ -11,7 +11,7 @@ TestNg Metrics is a custom report generated using TestNG Listener. Which generat
 ---
 
   - __Sample Report__ [link](https://testng-metrics.netlify.com/)
-  > Best video in desktop :)
+  > Best viewed in desktop!
 
 ---
 
@@ -54,13 +54,13 @@ TestNg Metrics is a custom report generated using TestNG Listener. Which generat
 4. TestNG Metrics report __metric-timestamp.html__ file will be created
    > By default, the report will be generated at TestNG's output directory. i.e., `test-output/metric-timestamp.html`
 
-### ANT:
+### ANT
 
    ```
     <dependency org="com.github.adiralashiva8" name="testng-metrics" rev="1.5" />
    ```
 
-### GRADLE GROOVY DSL
+### GRADLE Groovy DSL
    ```
     implementation 'com.github.adiralashiva8:testng-metrics:1.5'
    ```
@@ -97,13 +97,13 @@ Want to use Custom LOGO in testng-metrics then update `testng.metrics.logo` JVM 
  - From testng.xml: Place following lines in testng.xml
    ```
    <method-selectors>
-    <method-selector>
-      <script language="beanshell">
-        <![CDATA[ System.setProperty("testng.metrics.logo",
-          "https://mycompanylog.jpg");return true;]]>
-      </script>
-    </method-selector>
-  </method-selectors>
+     <method-selector>
+       <script language="beanshell">
+         <![CDATA[ System.setProperty("testng.metrics.logo",
+           "https://mycompanylog.jpg");return true;]]>
+       </script>
+     </method-selector>
+   </method-selectors>
   ```
 
 ---
