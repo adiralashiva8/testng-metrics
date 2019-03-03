@@ -3,7 +3,7 @@
 TestNg Metrics is a custom report generated using TestNG Listener. Which generate awesome html report without making any changes in your existing automation code
 
 [![HitCount](http://hits.dwyl.io/adiralashiva8/testng-metrics.svg)](http://hits.dwyl.io/adiralashiva8/testng-metrics)
-[![Maven Central](https://img.shields.io/maven-central/v/com.github.adiralashiva8/testng-metrics.svg?label=Maven%20Central)]
+![Maven Central](https://img.shields.io/maven-central/v/com.github.adiralashiva8/testng-metrics.svg?label=Maven%20Central)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
 ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 ![Open Source Love png1](https://badges.frapsoft.com/os/v1/open-source.png?v=103)
@@ -11,6 +11,7 @@ TestNg Metrics is a custom report generated using TestNG Listener. Which generat
 ---
 
   - __Sample Report__ [link](https://testng-metrics.netlify.com/)
+  > Best video in desktop :)
 
 ---
 
@@ -22,6 +23,8 @@ TestNg Metrics is a custom report generated using TestNG Listener. Which generat
  - Export Results (pdf, excel,csv, print)
  - Generate email (.eml) with statistics
  - No Code changes required
+ - Metrics of `After*` and `Before*`
+ - Display dataprovider info for tests
 
 ---
 
