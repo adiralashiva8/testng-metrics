@@ -3,7 +3,7 @@
 TestNg Metrics is a custom report generated using TestNG Listener. Which generate awesome html report without making any changes in your existing automation code
 
 [![HitCount](http://hits.dwyl.io/adiralashiva8/testng-metrics.svg)](http://hits.dwyl.io/adiralashiva8/testng-metrics)
-![Maven](https://maven-badges.herokuapp.com/maven-central/com.github.adiralashiva8/testng-metrics/badge.svg)
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.adiralashiva8/testng-metrics.svg?label=Maven%20Central)]
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
 ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 ![Open Source Love png1](https://badges.frapsoft.com/os/v1/open-source.png?v=103)
@@ -34,6 +34,8 @@ TestNg Metrics is a custom report generated using TestNG Listener. Which generat
 
 ### How to use in Project:
 
+### Maven:
+
 1. Add testng-metrics dependency in pom.xml
    ```
    <dependency>
@@ -49,7 +51,23 @@ TestNg Metrics is a custom report generated using TestNG Listener. Which generat
 
 4. TestNG Metrics report __metric-timestamp.html__ file will be created
    > By default, the report will be generated at TestNG's output directory. i.e., `test-output/metric-timestamp.html`
-   
+
+### ANT:
+
+   ```
+    <dependency org="com.github.adiralashiva8" name="testng-metrics" rev="1.5" />
+   ```
+
+### GRADLE GROOVY DSL
+   ```
+    implementation 'com.github.adiralashiva8:testng-metrics:1.5'
+   ```
+
+### GRADLE Kotlin DSL
+   ```
+    compile("com.github.adiralashiva8:testng-metrics:1.5")
+   ```
+
 ---
 
 ### Not a Maven Project?
@@ -69,7 +87,7 @@ TestNg Metrics is a custom report generated using TestNG Listener. Which generat
 
 ### Customize LOGO:
 
-Want to use Custom LOGO in testng-metrics then update `testng.metrics.logo`
+Want to use Custom LOGO in testng-metrics then update `testng.metrics.logo` JVM variable
 
  - From command line: 
    > `mvn clean test -Dtestng.metrics.logo="https://mycompanylog.jpg"`
@@ -148,13 +166,17 @@ Note: Testng-metrics uses above mentioned open-source libraries in report.
     > - Added brand LOGO for TestNG Metrics
 
 3. [Nainappa Illi](https://www.linkedin.com/in/nainappa-illi-97673231/)
-    > - Contributed source to archive test-output folder
+    > - Contributed source to archive test-output folder and display execution time
 
 *Feedback:*
 
 1. [Venkateswara Reddy G](https://www.linkedin.com/in/gvreddyreddy/)
 
 2. [Testng Users Community](https://groups.google.com/forum/#!forum/testng-users)
+
+---
+
+  > `STAR` repo to appreciate us!
 
 ---
 
