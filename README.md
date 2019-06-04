@@ -2,7 +2,6 @@
 
 TestNg Metrics is a custom report generated using TestNG Listener. Which generate awesome html report without making any changes in your existing automation code
 
-[![HitCount](http://hits.dwyl.io/adiralashiva8/testng-metrics.svg)](http://hits.dwyl.io/adiralashiva8/testng-metrics)
 ![Maven Central](https://img.shields.io/maven-central/v/com.github.adiralashiva8/testng-metrics.svg?label=Maven%20Central)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
 ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
