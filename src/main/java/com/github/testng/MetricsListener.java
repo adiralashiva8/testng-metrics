@@ -30,7 +30,7 @@ public class MetricsListener implements IReporter, ITestListener {
   public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites,
       String outputDirectory) {
     String logo =
-        System.getProperty("testng.metrics.logo", "https://i.ibb.co/k4YktNP/testingfox.jpg");
+        System.getProperty("testng.metrics.logo", "https://i.ibb.co/9qBkwDF/Testing-Fox-Logo.png");
     ExecutionResults results = Utils.computeOverResults(suites);
     builder.append(HtmlBuilder.buildHeaderAndTitle());
     builder.append(HtmlBuilder.buildDashBoard(results, logo));
