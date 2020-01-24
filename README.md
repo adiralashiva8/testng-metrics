@@ -53,22 +53,6 @@ TestNg Metrics is a custom report generated using TestNG Listener. Which generat
 4. TestNG Metrics report __metric-timestamp.html__ file will be created
    > By default, the report will be generated at TestNG's output directory. i.e., `test-output/metric-timestamp.html`
 
-### ANT
-
-   ```
-    <dependency org="com.github.adiralashiva8" name="testng-metrics" rev="1.5" />
-   ```
-
-### GRADLE Groovy DSL
-   ```
-    implementation 'com.github.adiralashiva8:testng-metrics:1.5'
-   ```
-
-### GRADLE Kotlin DSL
-   ```
-    compile("com.github.adiralashiva8:testng-metrics:1.5")
-   ```
-
 ---
 
 ### Not a Maven Project?
