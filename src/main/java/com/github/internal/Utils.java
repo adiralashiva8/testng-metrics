@@ -83,7 +83,8 @@ public class Utils {
   }
 
   public static void writeToFile(String outputDirectory, String fileContent) throws IOException {
-    String fileName = "Metrics-" + new SimpleDateFormat("yyyyMMMdd-HHmm'.html'").format(new Date());
+    String fileName =
+        System.getProperty("testng.metrics.filename", "Metrics-" + new SimpleDateFormat("yyyyMMMdd-HHmm'.html'").format(new Date()));
     String tempFile = outputDirectory + File.separator + fileName;
     File file = new File(tempFile);
     Files.writeFile(fileContent, file);

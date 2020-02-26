@@ -10,9 +10,9 @@
 
     <groupId>com.github.adiralashiva8</groupId>
     <artifactId>testng-metrics</artifactId>
-    <version>1.5</version>
+    <version>1.6</version>
     <packaging>jar</packaging>
-	
+
 	<name>TestNG Metrics</name>
     <description>A HTML Report of test executions via TestNG</description>
     <url>http://maven.apache.org</url>
@@ -28,7 +28,7 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
-    
+
      <scm>
         <connection>scm:git:git@github.com:adiralashiva8/testng-metrics.git</connection>
         <developerConnection>scm:git:git@github.com:adiralashiva8/testng-metrics.git</developerConnection>
@@ -38,7 +38,7 @@
         <developer>
             <id>adiralashiva8</id>
             <name>Shiva Prasad Adirala</name>
-            <url>http://shivaprasadadirala.wixsite.com/home</url>
+            <url>https://adiralashiva8.github.io/</url>
             <roles>
                 <role>Owner</role>
             </roles>
@@ -57,7 +57,7 @@
             <version>7.0.0-beta3</version>
         </dependency>
     </dependencies>
-    
+
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
@@ -124,7 +124,7 @@
                    </execution>
                </executions>
            </plugin>
-           
+
            <plugin>
 			    <groupId>org.apache.maven.plugins</groupId>
 			    <artifactId>maven-compiler-plugin</artifactId>

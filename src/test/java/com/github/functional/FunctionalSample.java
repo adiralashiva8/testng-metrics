@@ -8,7 +8,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class FunctionalSample {
-  
+
   @BeforeClass
   @Parameters({ "sUsername", "sPassword" })
   public void beforeClass(String sUsername, String sPassword) {
@@ -19,7 +19,7 @@ public class FunctionalSample {
 		e.printStackTrace();
 	}
   }
-  
+
   @AfterClass
   public void afterClass() {
 	  try {
