@@ -56,7 +56,7 @@
 
 ### Not a Maven Project?
 
-1. Download `testng-metrics.jar` from [here](http://central.maven.org/maven2/com/github/adiralashiva8/testng-metrics/1.5/testng-metrics-1.5.jar)
+1. Download `testng-metrics.jar` from [here](https://oss.sonatype.org/service/local/repositories/releases/content/com/github/adiralashiva8/testng-metrics/1.6/testng-metrics-1.6.jar)
 
 2. Add `testng-metrics.jar` in your project
    > - Open Eclipse → Right click on the project
