@@ -1,6 +1,6 @@
-<p align="center"><img src="https://i.ibb.co/0j28fBG/tmetricslogo.png" width="300" height="200"></p>
+# TestNg Metrics Report
 
-TestNg Metrics is a custom report generated using TestNG Listener. Which generate awesome html report without making any changes in your existing automation code
+ > TestNg Metrics is a custom report generated using TestNG Listener. Which generate awesome html report without making any changes in your existing automation code
 
 ![Maven Central](https://img.shields.io/maven-central/v/com.github.adiralashiva8/testng-metrics.svg?label=Maven%20Central)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
@@ -19,8 +19,7 @@ TestNg Metrics is a custom report generated using TestNG Listener. Which generat
  - Dashboard View of execution results
  - Top 10 Test Performances
  - Sort and Search Results
- - Export Results (pdf, excel,csv, print)
- - Generate email (.eml) with statistics
+ - Export Results (pdf, excel, csv, print)
  - No Code changes required
  - Metrics of `After*` and `Before*`
  - Display dataprovider info for tests
@@ -43,15 +42,15 @@ TestNg Metrics is a custom report generated using TestNG Listener. Which generat
    <dependency>
      <groupId>com.github.adiralashiva8</groupId>
      <artifactId>testng-metrics</artifactId>
-     <version>1.5</version>
+     <version>1.6</version>
    </dependency>
    ```
 2. Perform maven install
 
 3. Execute test cases
 
-4. TestNG Metrics report __metric-timestamp.html__ file will be created
-   > By default, the report will be generated at TestNG's output directory. i.e., `test-output/metric-timestamp.html`
+4. TestNg Metrics report file will be created
+   > By default report will be generated at TestNG's output directory. i.e., `test-output/metric.html`
 
 ---
 
@@ -60,50 +59,54 @@ TestNg Metrics is a custom report generated using TestNG Listener. Which generat
 1. Download `testng-metrics.jar` from [here](http://central.maven.org/maven2/com/github/adiralashiva8/testng-metrics/1.5/testng-metrics-1.5.jar)
 
 2. Add `testng-metrics.jar` in your project
-   > - Open Eclipse → Right Click on the project
+   > - Open Eclipse → Right click on the project
    > - Go to Property → Build Path → Configure Build Path
    > - Add the `testng-metrics.jar` in the libraries using Add External Jar button
 
 3. Execute test cases
 
-4. TestNG Metrics report __metric-timestamp.html__ file will be created
+4. TestNg Metrics report will be generated
 
 ---
 
-### Customize LOGO:
+### Customize Report:
 
-Want to use Custom LOGO in testng-metrics then update `testng.metrics.logo` JVM variable
+ - __Custom Logo__: Logo can be modified by modifying:
 
- - From command line: 
-   > `mvn clean test -Dtestng.metrics.logo="https://mycompanylog.jpg"`
+   > `testng.metrics.report.logo` parameter value in `testng.xml`
 
- - From testng.xml: Place following lines in testng.xml
-```
-     <method-selectors>
-       <method-selector>
-         <script language="beanshell">
-           <![CDATA[ System.setProperty("testng.metrics.logo",
-             "https://mycompanylog.jpg");return true;]]>
-         </script>
-       </method-selector>
-     </method-selectors>
-```
+    Example:
+    ```
+      <suite name="Suite">
+      <parameter name="testng.metrics.report.logo" value = "https://i.ibb.co/FqtQyC5/rfh.png"/>
+        <test name="Test">
+          <classes>
+            <class name="com.github.functional.FunctionalSample"/>
+          </classes>
+        </test>
+      </suite>
+    ```
 
----
 
-### Archiving Reports:
+ - __Custom Report Name__: Similar to __Custom Logo__ user can be modify report name by modifying:
 
-If you want to archive the entire `test-output` folder along with `testng-metrics report`, add the below parameter at suite level in your `testng.xml` file 
+   > `testng.metrics.report.name` parameter value in `testng.xml`
 
- > `<parameter name="archive.testng.metrics.report" value = "true"/>`.
+    Example:
+    ```
+    <parameter name="testng.metrics.report.name" value = "regression.html"/>
+    ```
+    > This helps in create different reports for different cases
 
-You can turn off this feature by either removing this parameter from testng file or by changing the value to `false`.
 
-Refer the testng.xml file in the repo.
+ - __Report With Timestamp__: Helps to create new file by appending timestamp to report every time
 
-This will create a folder in your: 
+   > `testng.metrics.report.appendTimestamp` parameter value in `testng.xml`
 
-> `.current.dir/TestNg_Metrics_Reports/<Results_dd_MMM_yy_hh_mm_ss>` 
+     Example:
+     ```
+     <parameter name="testng.metrics.report.appendTimestamp" value = "True"/>
+     ```
 
 ---
 
@@ -121,30 +124,14 @@ If you have any questions / suggestions / comments on the report, please feel fr
 
 ---
 
-*Credits:*
-
-1. TestNG [link](https://testng.org/doc/index.html)
-2. Stackoverflow [link](http://stackoverflow.com)
-3. Google charts [link](https://developers.google.com/chart/)
-4. DataTable [link](https://datatables.net/examples/basic_init/table_sorting.html)
-5. Java [link](https://www.java.com)
-6. Jquery | JavaScript [link](https://www.jqueryscript.net)
-7. Bootstrap [link](http://getbootstrap.com/docs/4.1/examples/dashboard/)
-8. Icons8 [link](https://icons8.com/)
-9. FontAwesome [link](https://fontawesome.com)
-
-Note: Testng-metrics uses above mentioned open-source libraries in report.
-
----
-
 *Special Thanks To:*
 
 *Contributors:*
 
-1. [Krishnan Mahadevan](https://www.linkedin.com/in/krmahadevan/) [Automation GURU]
+1. [Krishnan Mahadevan](https://www.linkedin.com/in/krmahadevan/)
     > - Mavenised the project ( To consume it from Maven library )
-    > - Converted the utility into a TestNG listener
-    > - Guided to publish the library onto Maven Central
+    > - Converted the utility into a TestNg listener
+    > - Guided to publish the library into Maven Central
 
 2. [Saurabh Gupta](https://www.linkedin.com/in/saurabh-gupta-24769929/)
     > - Contributed source to display data-provider info in Test Metrics
@@ -161,7 +148,7 @@ Note: Testng-metrics uses above mentioned open-source libraries in report.
 
 ---
 
-  > `STAR` repo to appreciate us!
+  > :star: repo if you like it
 
 ---
 

@@ -2,9 +2,7 @@ package com.github.internal;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -82,9 +80,7 @@ public class Utils {
     return results;
   }
 
-  public static void writeToFile(String outputDirectory, String fileContent) throws IOException {
-    String fileName =
-        System.getProperty("testng.metrics.filename", "Metrics-" + new SimpleDateFormat("yyyyMMMdd-HHmm'.html'").format(new Date()));
+  public static void writeToFile(String outputDirectory, String fileContent, String fileName) throws IOException {
     String tempFile = outputDirectory + File.separator + fileName;
     File file = new File(tempFile);
     Files.writeFile(fileContent, file);

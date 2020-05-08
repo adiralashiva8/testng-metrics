@@ -1,6 +1,5 @@
 package com.github.testng;
 
-import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
@@ -17,7 +16,6 @@ import org.testng.ITestResult;
 import org.testng.TestNG;
 import org.testng.xml.XmlSuite;
 
-import com.github.exception.ReportConfigException;
 import com.github.internal.HtmlBuilder;
 import com.github.internal.Utils;
 import com.github.internal.Utils.ExecutionResults;
@@ -25,21 +23,21 @@ import com.github.internal.Utils.ExecutionResults;
 public class MetricsListener implements IReporter, ITestListener {
   private StringBuilder builder = new StringBuilder();
   private static String outdir;
+  private static String metricsLogo;
+  private static String metricsFileName;
+  private static String metricsAppendTimeStamp;
 
   @Override
   public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites,
       String outputDirectory) {
-    String logo =
-        System.getProperty("testng.metrics.logo", "https://i.ibb.co/9qBkwDF/Testing-Fox-Logo.png");
     ExecutionResults results = Utils.computeOverResults(suites);
     builder.append(HtmlBuilder.buildHeaderAndTitle());
-    builder.append(HtmlBuilder.buildDashBoard(results, logo));
+    builder.append(HtmlBuilder.buildDashBoard(results, metricsLogo));
     suites.forEach(this::generateReport);
     builder.append(HtmlBuilder.buildLogsTab());
-    builder.append(HtmlBuilder.buildEmailTab(results));
     builder.append(HtmlBuilder.buildScriptContent());
     try {
-      Utils.writeToFile(outputDirectory, builder.toString());
+      Utils.writeToFile(outputDirectory, builder.toString(), metricsFileName);
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -61,7 +59,7 @@ public class MetricsListener implements IReporter, ITestListener {
 	  }
 	  builder.append(HtmlBuilder.buildClassMetrics(suiteResult));
 	  if (index == size-1) {
-	    builder.append(HtmlBuilder.appendClassMetricsFooter());
+	    builder.append(HtmlBuilder.appendMetricsFooter());
 	  }
 	  index++;
     }
@@ -88,7 +86,7 @@ public class MetricsListener implements IReporter, ITestListener {
       }
       builder.append(HtmlBuilder.buildTestMetricsTab(suiteResult));
       if (index == size-1) {
-        builder.append(HtmlBuilder.appendTestMetricsFooter());
+        builder.append(HtmlBuilder.appendMetricsFooter());
       }
       index++;
     }
@@ -105,54 +103,38 @@ public class MetricsListener implements IReporter, ITestListener {
 	  }
 	  builder.append(HtmlBuilder.buildMethodMetricsTab(suiteResult));
 	  if (index == size-1) {
-	    builder.append(HtmlBuilder.appendMethodMetricsFooter());
+	    builder.append(HtmlBuilder.appendMetricsFooter());
 	  }
 	  index++;
     }
   }
 
-  @SuppressWarnings("deprecation")
   @Override
   public void onStart(ITestContext context) {
-    String archive_report =
-        context.getCurrentXmlTest().getParameter("archive.testng.metrics.report");
-    if(archive_report==null){
-      archive_report = "false";
-    }
-    Method customMethod;
-    outdir = "";
-    if (archive_report.equalsIgnoreCase("yes") || archive_report.equalsIgnoreCase("true")) {
-      String archivePath = "";
-      try {
-    	customMethod = TestNG.class.getMethod("setOutputDirectory", String.class);
-        archivePath = System.getProperty("user.dir") + File.separator + "TestNg_Metrics_Reports" + File.separator;
-        archivePath += "Results_" + new SimpleDateFormat("dd_MMM_yy_hh_mm_ss").format(new Date());
-        try {
-          if (!(new File(archivePath).mkdirs())) {
-            throw new ReportConfigException("Failed to create the archive report directory");
-          }
-        } catch (Exception exception) {
-          throw new ReportConfigException(exception.getMessage(), exception);
-        }
-        outdir = archivePath;
-        Object customObject[] = {outdir};
-        customMethod.invoke(TestNG.getDefault(), customObject);
-        System.out.println("Custom output folder created at: " + outdir);
-      } catch (Exception exception) {
-        // e.printStackTrace();
-        throw new ReportConfigException("Unable to set archive report directory", exception);
-      }
-    } else {
-      try {
-    	customMethod = TestNG.class.getMethod("getOutputDirectory");
-        Object customObject[] = {};
-        outdir = (String) customMethod.invoke(TestNG.getDefault(), customObject);
-      } catch (Exception exception) {
-        // e.printStackTrace();
-        throw new ReportConfigException("Unable to read report directory", exception);
-      }
-    }
-
+	metricsLogo = context.getCurrentXmlTest().getParameter("testng.metrics.report.logo");
+	metricsFileName = context.getCurrentXmlTest().getParameter("testng.metrics.report.name");
+	metricsAppendTimeStamp = context.getCurrentXmlTest().getParameter("testng.metrics.report.appendTimestamp");
+		  
+	if (metricsFileName==null) {
+		metricsFileName = "testng_metrics.html";
+	}
+	
+	if (metricsLogo==null) {
+		metricsLogo = "https://i.ibb.co/9qBkwDF/Testing-Fox-Logo.png";
+	}
+	
+	if (metricsAppendTimeStamp != null) {
+		if (metricsAppendTimeStamp.equalsIgnoreCase("true")) {
+			String[] desiredText = metricsFileName.split(".html");
+			metricsFileName = desiredText[0] + "_" + new SimpleDateFormat("dd_MMM_yy_hh_mm_ss").format(new Date()) + ".html";
+		}
+	}
+	System.out.println("");
+	System.out.println("Logo: " + metricsLogo);
+    System.out.println("File name: " + metricsFileName);
+    System.out.println("Append timestamp?: " + metricsAppendTimeStamp);
+    System.out.println("File name(timestamp): " + metricsFileName);
+    System.out.println("");
   }
 
   @SuppressWarnings("deprecation")

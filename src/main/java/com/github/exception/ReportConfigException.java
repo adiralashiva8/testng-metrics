@@ -17,8 +17,8 @@ public class ReportConfigException extends RuntimeException implements Serializa
   /**
    * For wrapping up exception
    * 
-   * @param message
-   * @param cause
+   * @param message Error message
+   * @param cause Error cause
    */
   public ReportConfigException(String message, Throwable cause) {
     super(message, cause);
