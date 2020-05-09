@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <parameter name="testng.metrics.report.name" value="regression.html"/>
+  <parameter name="testng.metrics.report.logo" value="https://i.ibb.co/FqtQyC5/rfh.png"/>
+  <parameter name="testng.metrics.report.appendTimestamp" value="True"/>
+  <test thread-count="5" name="Test(failed)">
+    <parameter name="sUsername" value="testuser_1"/>
+    <parameter name="sPassword" value="Test@123"/>
+    <classes>
+      <class name="com.github.functional.FunctionalSample">
+        <methods>
+          <include name="dataProviderTest" invocation-numbers="1"/>
+          <include name="beforeClass"/>
+          <include name="failingTest"/>
+          <include name="afterClass"/>
+          <include name="skippingTest"/>
+        </methods>
+      </class> <!-- com.github.functional.FunctionalSample -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

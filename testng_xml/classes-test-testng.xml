@@ -1,0 +1,13 @@
+<suite name="Test-class Suite" parallel="classes" thread-count="2" >
+
+  <parameter name="testng.metrics.report.logo" value = "https://i.ibb.co/FqtQyC5/rfh.png"/>
+  <parameter name="testng.metrics.report.name" value = "parallel_classes.html"/>
+  <parameter name="testng.metrics.report.appendTimestamp" value = "True"/>
+
+  <test name="Test-class test" >
+    <classes>
+      <class name="com.github.functional.ParallelClassesTestOne" />
+      <class name="com.github.functional.ParallelClassesTestTwo" />
+    </classes>
+  </test>
+</suite>

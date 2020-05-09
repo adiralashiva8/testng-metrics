@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Test-class Suite" duration-ms="57" started-at="2020-05-09T20:41:41 IST" finished-at="2020-05-09T20:41:41 IST">
+    <groups>
+    </groups>
+    <test name="Test-class test 1" duration-ms="57" started-at="2020-05-09T20:41:41 IST" finished-at="2020-05-09T20:41:41 IST">
+      <class name="com.github.functional.ParallelSuiteTest">
+        <test-method status="PASS" signature="beforeTest(java.lang.String)[pri:0, instance:com.github.functional.ParallelSuiteTest@5cb9f472]" name="beforeTest" is-config="true" duration-ms="16" started-at="2020-05-09T20:41:41 IST" finished-at="2020-05-09T20:41:41 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[test-method One]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.github.functional.ParallelSuiteTest@5cb9f472]" name="beforeClass" is-config="true" duration-ms="0" started-at="2020-05-09T20:41:41 IST" finished-at="2020-05-09T20:41:41 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="testMethodOne()[pri:0, instance:com.github.functional.ParallelSuiteTest@5cb9f472]" name="testMethodOne" duration-ms="5" started-at="2020-05-09T20:41:41 IST" finished-at="2020-05-09T20:41:41 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMethodOne -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.github.functional.ParallelSuiteTest@5cb9f472]" name="afterClass" is-config="true" duration-ms="1" started-at="2020-05-09T20:41:41 IST" finished-at="2020-05-09T20:41:41 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.github.functional.ParallelSuiteTest@5cb9f472]" name="afterTest" is-config="true" duration-ms="0" started-at="2020-05-09T20:41:41 IST" finished-at="2020-05-09T20:41:41 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.github.functional.ParallelSuiteTest -->
+    </test> <!-- Test-class test 1 -->
+    <test name="Test-class test 2" duration-ms="57" started-at="2020-05-09T20:41:41 IST" finished-at="2020-05-09T20:41:41 IST">
+      <class name="com.github.functional.ParallelSuiteTest">
+        <test-method status="PASS" signature="beforeTest(java.lang.String)[pri:0, instance:com.github.functional.ParallelSuiteTest@4e1d422d]" name="beforeTest" is-config="true" duration-ms="16" started-at="2020-05-09T20:41:41 IST" finished-at="2020-05-09T20:41:41 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[test-method One]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.github.functional.ParallelSuiteTest@4e1d422d]" name="beforeClass" is-config="true" duration-ms="0" started-at="2020-05-09T20:41:41 IST" finished-at="2020-05-09T20:41:41 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="testMethodOne()[pri:0, instance:com.github.functional.ParallelSuiteTest@4e1d422d]" name="testMethodOne" duration-ms="6" started-at="2020-05-09T20:41:41 IST" finished-at="2020-05-09T20:41:41 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMethodOne -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.github.functional.ParallelSuiteTest@4e1d422d]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-05-09T20:41:41 IST" finished-at="2020-05-09T20:41:41 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.github.functional.ParallelSuiteTest@4e1d422d]" name="afterTest" is-config="true" duration-ms="0" started-at="2020-05-09T20:41:41 IST" finished-at="2020-05-09T20:41:41 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.github.functional.ParallelSuiteTest -->
+    </test> <!-- Test-class test 2 -->
+  </suite> <!-- Test-class Suite -->
+</testng-results>
