@@ -6,6 +6,7 @@
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
 ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 ![Open Source Love png1](https://badges.frapsoft.com/os/v1/open-source.png?v=103)
+[![HitCount](http://hits.dwyl.io/adiralashiva8/testng-metrics.svg)](http://hits.dwyl.io/adiralashiva8/testng-metrics)
 
 ---
 
@@ -143,6 +144,8 @@ If you have any questions / suggestions / comments on the report, please feel fr
 *Feedback:*
 
 1. [Venkateswara Reddy G](https://www.linkedin.com/in/gvreddyreddy/)
+
+2. [Shyam]()
 
 2. [Testng Users Community](https://groups.google.com/forum/#!forum/testng-users)
 
